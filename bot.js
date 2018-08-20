@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 
 client.on('ready', () => {
-    client.user.setPresence({ game: { name: `meus comandos /comandos`, type: 1, url: 'https://www.twitch.tv/recky'} });
+     client.user.setPresence({ game: { name: `/comandos`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
 client.on('message', message => {
