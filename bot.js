@@ -49,15 +49,20 @@ let cmd = arraymsg[0].toLowerCase()
         message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
   }
 });
-client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
-  let canal = member.guild.channels.find(`name`, "📥recepção");
+  let canal = member.guild.channels.find(`name`, "📥entrada");
   if (!canal) return;
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **|** ${member} **Seja bem-vindo(a) ao nosso servidor.**`)
+  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
+
+  » **Recky:** https://www.youtube.com/channel/UCKKAEwJ6ArmYaV214-qZ5_g
+  » **yRecky:** https://www.youtube.com/yRecky
+  » **Slopy:** https://www.youtube.com/channel/UCtq7npnD1v-R2bqJFQJkjbA`)
+  .setThumbnail(member.user.displayAvatarURL)
   canal.send({embed : embed})
 });
 
