@@ -7,6 +7,25 @@ bot.on('ready', () => {
     console.log('Logado');
 });
 bot.on('message', message => {
+    let arraymsg = message.content.split(" ");
+let cmd = arraymsg[0].toLowerCase()
+let args = message.content.split(" ").slice(1);
+if(cmd === '/anuncio'){
+    const args = message.content.split(" ").slice(1);
+    const prefix = '/'
+    message.delete()
+    if (!args.slice(0).join(' ')) return message.channel.send('test')
+    message.channel.send({embed:{
+        'description':args.slice(0).join(' ')
+        ,'color':message.member.highestRole.color,
+        "thumbnail":{
+            }
+        }
+    }
+    )
+}
+});
+bot.on('message', message => {
     if (message.content === 'Oi') {
     	message.reply('Olá, tudo bem ?');
     }
