@@ -49,7 +49,7 @@ let cmd = arraymsg[0].toLowerCase()
         message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
   }
 });
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
   let canal = member.guild.channels.find(`name`, "📥entrada");
