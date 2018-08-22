@@ -57,7 +57,7 @@ client.on('guildMemberAdd', member => {
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **Olá ${Math.round}, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
+  .setDescription(`🎈 **Olá message.reply, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
 
   » **Recky:** https://www.youtube.com/channel/UCKKAEwJ6ArmYaV214-qZ5_g
   » **yRecky:** https://www.youtube.com/yRecky
