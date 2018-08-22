@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new Discord.Client();
 
 
-client.on('ready', () => {
-     client.user.setPresence({ game: { name: `/comandos`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+bot.on('ready', () => {
+     bot.user.setPresence({ game: { name: `/comandos`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
-client.on('message', message => {
+bot.on('message', message => {
     if (message.content === 'Oi') {
     	message.reply('Olá, tudo bem ?');
     }
@@ -34,7 +34,7 @@ let cmd = arraymsg[0].toLowerCase()
     message.channel.send(`Meu ping é***${Math.round(client.ping)}ms!***`);
   }
 });
-client.on('message', message => {
+bot.on('message', message => {
   let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
   if(cmd === '/ban'){
@@ -49,7 +49,7 @@ let cmd = arraymsg[0].toLowerCase()
         message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
   }
 });
-client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
   let canal = member.guild.channels.find(`name`, "📥entrada");
@@ -57,7 +57,7 @@ client.on('guildMemberAdd', member => {
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **Olá message.reply, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
+  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
 
   » **Recky:** https://www.youtube.com/channel/UCKKAEwJ6ArmYaV214-qZ5_g
   » **yRecky:** https://www.youtube.com/yRecky
@@ -67,4 +67,4 @@ client.on('guildMemberAdd', member => {
 });
 
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
