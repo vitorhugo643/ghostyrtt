@@ -3,55 +3,8 @@ const bot = new Discord.Client();
 
 
 bot.on('ready', () => {
-     bot.user.setPresence({ game: { name: `/comandos`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+     bot.user.setPresence({ game: { name: `Olá eu sou a Marta's Discord!`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
-});
-bot.on('message', message => {
-    let arraymsg = message.content.split(" ");
-let cmd = arraymsg[0].toLowerCase()
-let args = message.content.split(" ").slice(1);
-if(cmd === '/anuncio'){
-    const args = message.content.split(" ").slice(1);
-    const prefix = '/'
-    message.delete()
-    if (!args.slice(0).join(' ')) return message.channel.send('test')
-    message.channel.send({embed:{
-        'description':args.slice(0).join(' ')
-        ,'color':message.member.highestRole.color,
-        "thumbnail":{
-            }
-        }
-    }
-    )
-}
-});
-bot.on('message', message => {
-    if (message.content === 'Oi') {
-    	message.reply('Olá, tudo bem ?');
-    }
-    if (message.content === 'piga'){
-        message.reply('pong');
-  	}
-    if (message.content.startsWith('/twitter')){
-        message.channel.send('Twitter:  https://twitter.com/Reckzinnn1');
-    } 
-    if (message.content.startsWith('/comandos')){
-        message.channel.send('Meus comandos são: /twitter - /canal - /donos - /inscrito - /ping')
-    }
-    if (message.content.startsWith('/donos')){
-        message.channel.send('É o Recky e o !👑Slopy👑!');
-    }
-    if (message.content.startsWith('/inscrito')){
-        message.channel.send('Inscritos são àqueles quê vão nos vídeos é deixa seu like, também são aqueles que ativa o sininho pra chegar as notificações, obrigado por está nos acompanhando até hoje, um salve pra você e tchau!!');
-    }
-    if (message.content.startsWith('/canal')){
-        message.channel.send('Recky : https://www.youtube.com/channel/UCKKAEwJ6ArmYaV214-qZ5_g/featured ------ Slopy : https://www.youtube.com/channel/UCtq7npnD1v-R2bqJFQJkjbA');
-    }
-    let arraymsg = message.content.split(" ");
-let cmd = arraymsg[0].toLowerCase()
-  if(cmd === '/ping') {
-    message.channel.send(`Meu ping é***${Math.round(bot.ping)}ms!***`);
-  }
 });
 bot.on('message', message => {
   let arraymsg = message.content.split(" ");
@@ -71,17 +24,14 @@ let cmd = arraymsg[0].toLowerCase()
 bot.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
-  let canal = member.guild.channels.find(`name`, "📥entrada");
+  let canal = member.guild.channels.find(`name`, "entrada🙋");
   if (!canal) return;
 
   var embed = new Discord.RichEmbed()
   .setColor(randomColor)
-  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial INSCRITOS » COMMUNITY**
+  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial Marta's Discord!**
 
-  » **Recky:** https://www.youtube.com/channel/UCKKAEwJ6ArmYaV214-qZ5_g
-  » **yRecky:** https://www.youtube.com/yRecky
-  » **Slopy:** https://www.youtube.com/channel/UCtq7npnD1v-R2bqJFQJkjbA`)
-  .setThumbnail(member.user.displayAvatarURL)
+  » **Twitter:** https://twitter.com/Martinhaa161)
   canal.send({embed : embed})
 });
 
