@@ -31,6 +31,7 @@ bot.on('guildMemberAdd', member => {
   .setColor(randomColor)
   .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial Marta's Discord!**
 
+  » **NameMC:** https://pt.namemc.com/profile/yMartinhaa_.1
   » **Twitter:** https://twitter.com/Martinhaa161`)
   canal.send({embed : embed})
 });
