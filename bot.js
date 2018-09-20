@@ -64,7 +64,7 @@ bot.on('message', message => {
 bot.on('guildMemberAdd', member => {
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
-  let canal = member.guild.channels.find(`name`, "entrada🙋");
+  let canal = member.guild.channels.find(`name`, "entrada-saída");
   if (!canal) return;
 
   var embed = new Discord.RichEmbed()
