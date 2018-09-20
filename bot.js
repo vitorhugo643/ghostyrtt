@@ -64,13 +64,15 @@ let cmd = arraymsg[0].toLowerCase()
 const args = message.content.split (" ").slice(1);
     if(cmd === '/say'){
         message.delete();
+        message.delete();
+        message.delete();
         message.channel.send(args.join(" "))
 }});
 bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
 const args = message.content.split (" ").slice(1);
-    if(cmd === '/avata'){
+    if(cmd === '/avatar'){
 let member = message.mentions.users.first() || bot.users.get(args[0]) || message.author;
     let avatar = member.displayAvatarURL;
     if (avatar.endsWith(".gif")) {
