@@ -5,7 +5,7 @@ const bot = new Discord.Client();
 
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: `» IP: 30praum.pvp.host`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+    bot.user.setPresence({ game: { name: `» IP: 30praum.pvp.host `, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
 bot.on('message', message => {
