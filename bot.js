@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: `» IP: CrownMC.reis.host `, type: 1, url: 'https://www.youtube.com/yRecky'} });
+    bot.user.setPresence({ game: { name: `meu criador no lixo! `, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
 bot.on('message', message => {
@@ -48,32 +48,6 @@ bot.on('message', message => {
     if (message.content === 'piga'){
         message.reply('pong');
   	}
-    if (message.content.startsWith('/twitter')){
-        message.channel.send('Twitter: https://twitter.com/RedeCrownMC');
-    }
-    if (message.content.startsWith('/ip')){
-        message.channel.send('Nosso ip é: CrownMC.reis.host');
-    }
-    if (message.content.startsWith('/comandos')){
-        message.channel.send('Meus comandos são: /twitter - /loja - /ip - /avata - /report ')
-    }
-    if (message.content.startsWith('/loja')){
-        message.channel.send('Em desenvolvimento! ');
-    }
-});
-bot.on('guildMemberAdd', member => {
-  const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
- 
-  let canal = member.guild.channels.find(`name`, "entrada🙋");
-  if (!canal) return;
-
-  var embed = new Discord.RichEmbed()
-  .setColor(randomColor)
-  .setDescription(`🎈 **Olá ${member}, seja bem-vindo ao Discord oficial da CrownMC**
-  » **IP:** CrownMC.reis.host <:infinito:
-  » **Twitter:** https://twitter.com/RedeCrownMC`)
-  .setThumbnail(member.user.displayAvatarURL)
-  canal.send({embed : embed})
 });
 bot.on('message', message => {
     let arraymsg = message.content.split(" ");
