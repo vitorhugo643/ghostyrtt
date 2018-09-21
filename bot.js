@@ -23,7 +23,7 @@ bot.on('ready', () => {
 });
 bot.on('message', message => {
     if (message.content.startsWith('/ajuda')){
-        message.channel.send('estou em desenvolvimento, entao quando adicionar comabdos, meu cruador avisara.\nCriador: NitriiPVPA.');
+        message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NittroPVP#4025.');
     }
 });
     
