@@ -26,6 +26,23 @@ bot.on('message', message => {
         message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NitrooPVP#4025.');
     }
 });
+client.on('message', message => {
+    let arraymsg = message.content.split(" ");
+let cmd = arraymsg[0].toLowerCase()
+let args = message.content.split(" ").slice(1)
+    if(cmd === '/ban'){
+        const args = message.content.split(" ").slice(1);
+        var razao = args.slice(1).join(" ")
+        message.channels.get('480917048860344321')
+            var membro = message.mentions.members.first();
+            if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
+            if(!membro) return message.reply("você não mencinou ninguém")
+            if(!membro.bannable) return message.reply("Você não pode banir essa pessoa")
+            if(razao.length < 1) return message.reply("Coloque um motivo!")
+            membro.ban()
+            message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
+      }
+});
     
 // THIS  MUST  BE  THIS  WAY
 bot.login(process.env.BOT_TOKEN);
