@@ -5,6 +5,7 @@ const bot = new Discord.Client();
 bot.on('ready', () => {
     let status = [
         {name: 'meu criado #NitrooPVP#4025', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'o nacar do meu criador| NitrooPVP', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
       ];
       
       //STREAMING = Transmitindo
