@@ -23,8 +23,8 @@ bot.on('ready', () => {
     console.log('Logado');
 });
 bot.on('message', message => {
-    if (message.content.startsWith('!!twitter')){
-        message.channel.send('Twitter:  https://twitter.com/RedeDarknes');
+    if (message.content.startsWith('/ajuda')){
+        message.channel.send('Para saber meus comandos é /comandos\nPara ver mer criador /criador');
     }
 });
 bot.on('message', message => {
