@@ -32,7 +32,7 @@ bot.on('message', message => {
         message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
     if (message.content.startsWith('/comandos)){
-        message.channel.send('/comandos | /criador');
+        message.channel.send('/comandos\n/criador');
     }
 });
 bot.on('message', message => {
@@ -70,6 +70,7 @@ let args = message.content.split(" ").slice(1)
             message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
       }
 });
-
+    
+    
 // THIS  MUST  BE  THIS  WAY
 bot.login(process.env.BOT_TOKEN);
