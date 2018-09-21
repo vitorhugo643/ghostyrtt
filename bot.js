@@ -32,10 +32,9 @@ bot.on('message', message => {
         message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
     if (message.content.startsWith('/comandos')){
-        message.channel.send('${member} /ajuda | /comandos | /criador');
+        message.channel.send('/ajuda | /comandos | /criador');
     }
-});
-bot.on('message', message => {
+});bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
     if(cmd === '/mute'){
