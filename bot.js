@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
-const client = new Discord.Client(); 
-const config = require("./config.json"); 
+const bot = new Discord.Client(); 
 
 
-client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
   member.send(`${member}, Obrigado por entrar em nosso discord, sua presença é muito importante a nós! Seja Bem-Vindo! :heart_eyes:\n\n:book: Conheça nossas regras no chat :scroll: 💭bate-papo na mensagem fixada e fique atento para não receber nenhuma surpresa.\n\n:pushpin: Convide seus amigos para se divertir juntos!\n\n:balloon: Ajude diariamente e consiga uma TAG maneira!\n\n:white_check_mark: #Paz #Respeito`);
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
  
@@ -17,7 +16,7 @@ client.on('guildMemberAdd', member => {
 });
 
 
-client.on('ready', () =>{
+bot.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│!ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
         {name: '😍Nighty » Community😍', type: 'LISTENING'},
@@ -39,7 +38,7 @@ client.on('ready', () =>{
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 
-client.on("guildCreate", guild => {
+bot.on("guildCreate", guild => {
   console.log(`O Nighty BOT entrou no servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
@@ -50,7 +49,7 @@ client.on("guildDelete", guild => {
 });
 
 
-client.on("message", async message => {
+bot.on("message", async message => {
   let responseObject = {
     "oi" : "Olá, como você está hoje?",
     "bem" : "Que bom que você está bem :slight_smile:"
@@ -111,4 +110,4 @@ client.on("message", async message => {
 });
 
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
