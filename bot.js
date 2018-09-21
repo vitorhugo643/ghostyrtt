@@ -22,6 +22,12 @@ bot.on('ready', () => {
     console.log('Logado');
 });
 bot.on('message', message => {
+    if (message.content === 'Oi') {
+    	message.reply('Olá, tudo bem ?');
+    }
+    if (message.content === 'ping'){
+        message.reply('pong');
+  	}
     if (message.content.startsWith('/ajuda')){
         message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
