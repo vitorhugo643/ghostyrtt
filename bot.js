@@ -26,7 +26,7 @@ bot.on('message', message => {
         message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NitrooPVP#4025.');
     }
 });
-client.on('message', message => {
+bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
 let args = message.content.split(" ").slice(1)
@@ -40,6 +40,7 @@ let args = message.content.split(" ").slice(1)
             if(razao.length < 1) return message.reply("Coloque um motivo!")
             membro.ban()
             message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
+            message.channels.get('480917048860344321')
       }
 });
     
