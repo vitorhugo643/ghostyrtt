@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 
 bot.on('ready', () => {
     let status = [
-        {name: 'fui desenvolvido pelo NitrooPVP#4025', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'em desenvolvimento.', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
       ];
       
       //STREAMING = Transmitindo
@@ -22,17 +22,8 @@ bot.on('ready', () => {
     console.log('Logado');
 });
 bot.on('message', message => {
-    if (message.content === 'Oi') {
-    	message.reply('Olá, tudo bem ?');
-    }
-    if (message.content === 'ping'){
-        message.reply('pong');
-  	}
     if (message.content.startsWith('/ajuda')){
-        message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
-    }
-    if (message.content.startsWith('/comandos)){
-        message.channel.send('/comandos\n/criador');
+        message.channel.send('estou em desenvolvimento, entao quando adicionar comabdos, meu cruador avisara.\nCriador: NitriiPVPA.');
     }
 });
     
