@@ -29,7 +29,10 @@ bot.on('message', message => {
         message.reply('pong');
   	}
     if (message.content.startsWith('/ajuda')){
-        message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
+        message.channel.send('Para saber meus comandos é /comando.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
+    }
+    if (message.content.startsWith('/comando)){
+        message.channel.send('/ajuda | /comandos | /criador');
     }
     if (message.content.startsWith('/comandos')){
         message.channel.send('/ajuda | /comandos | /criador');
