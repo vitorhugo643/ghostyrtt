@@ -24,7 +24,7 @@ bot.on('ready', () => {
 });
 bot.on('message', message => {
     if (message.content.startsWith('/ajuda')){
-        message.channel.send('Para saber meus comandos é /comandos\nPara ver mer criador /criador');
+        message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
 });
 bot.on('message', message => {
