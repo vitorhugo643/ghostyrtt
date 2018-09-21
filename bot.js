@@ -39,10 +39,10 @@ bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
     if(cmd === '/mute'){
-if (message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send('Você não tem permissão para executar este comando!')
-  if (!args[0]) return message.channel.send("Mencione o membro!")
   var user = message.mentions.members.first()
-  var razao = args.slice(1).join(' ') 
+  var razao = args.slice(1).join(' ')
+  if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send('Você não tem permissão para executar este comando!')
+  if(!args[0]) return messa(ge.channel.send("Mencione o membro!")
   if (!razao) razao = "sem motivo"
   var muteRole = message.guild.roles.find("name", "Muted")
   if(!muteRole) return message.channel.send("Não encontrei o cargo Muted.");
