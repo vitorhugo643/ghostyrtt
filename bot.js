@@ -33,7 +33,6 @@ let args = message.content.split(" ").slice(1)
     if(cmd === '/ban'){
         const args = message.content.split(" ").slice(1);
         var razao = args.slice(1).join(" ")
-        message.channels.get('480917048860344321')
             var membro = message.mentions.members.first();
             if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
             if(!membro) return message.reply("você não mencinou ninguém")
@@ -41,6 +40,7 @@ let args = message.content.split(" ").slice(1)
             if(razao.length < 1) return message.reply("Coloque um motivo!")
             membro.ban()
             message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
+            message.channels.get('480917048860344321')
       }
 });
     
