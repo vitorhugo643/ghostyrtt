@@ -39,9 +39,9 @@ bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
 let args = message.content.split(" ").slice(1);
-if(cmd === '/anuncio'){
+if(cmd === 'x!anuncio'){
     const args = message.content.split(" ").slice(1);
-    const prefix = '/'
+    const prefix = 'x!'
     message.delete()
     if (!args.slice(0).join(' ')) return message.channel.send('test')
     message.channel.send({embed:{
@@ -70,7 +70,6 @@ let args = message.content.split(" ").slice(1)
             message.channel.send(`O membro ${membro.user.username} foi banido do servidor.\nMotivo: ${razao}`)
       }
 });
-    
     
 // THIS  MUST  BE  THIS  WAY
 bot.login(process.env.BOT_TOKEN);
