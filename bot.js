@@ -34,7 +34,8 @@ bot.on('message', message => {
     if (message.content.startsWith('/comandos')){
         message.channel.send('/ajuda | /comandos | /criador');
     }
-});bot.on('message', message => {
+});
+bot.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
     if(cmd === '/mute'){
