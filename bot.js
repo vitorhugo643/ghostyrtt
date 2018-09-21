@@ -32,7 +32,7 @@ bot.on('message', message => {
         message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
     if (message.content.startsWith('/comandos')){
-        message.channel.send('/ajuda\n \n/comandos\n \n/criador');
+        message.channel.send('${member} /ajuda | /comandos | /criador');
     }
 });
 bot.on('message', message => {
