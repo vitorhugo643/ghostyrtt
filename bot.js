@@ -26,6 +26,9 @@ bot.on('message', message => {
     if (message.content.startsWith('/ajuda')){
         message.channel.send('Para saber meus comandos é /comandos.\nPara ver meu criador /criador.\nEstou em desenvolvimento, então não tenho muitos comandos.');
     }
+    if (message.content.startsWith('/comandos')){
+        message.channel.send('/ajuda\n \n/comandos\n \n/criador');
+    }
 });
 bot.on('message', message => {
     let arraymsg = message.content.split(" ");
