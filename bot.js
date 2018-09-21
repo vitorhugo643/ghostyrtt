@@ -25,6 +25,9 @@ bot.on('message', message => {
     if (message.content.startsWith('/ajuda')){
         message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NitrooPVP#4025.');
     }
+    if (message.content.startsWith('/comandos')){
+        message.channel.send('/comandos | /ajuda\nAssim que meu criador coloca mais comandos, é só da /comandos para ver os novos.');
+    }
 });
 bot.on('message', message => {
     let arraymsg = message.content.split(" ");
