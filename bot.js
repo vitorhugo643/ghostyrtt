@@ -1,22 +1,26 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const activities = ['Oq vc quer', 'oq vc quer', 'você morrendo 💀.', `com ${bot.users.size} demônios.`, 'você se matando.', 'você. ']
-    let counter = 0
-    setInterval(function() {
-        counter+= 1
-        counter %= activities.length
-    }, 10000)
-
-    const activities2 = ['LISTENING', 'WATCHING', 'PLAYING', 'WATCHING']
-    let counter2 = 0
-    setInterval(function() {
-        bot.user.setActivity(activities[counter], { type: activities2[counter2] })
-        counter2+= 1
-        counter2 %= activities2.length
-    }, 10000)
 
 
 bot.on('ready', () => {
+    let status = [
+        {name: 'test', type: 'LISTENING'},
+        {name: 'test2', type: 'PLAYING'},
+        {name: 'test3', type: 'WATCHING'},
+      ];
+      
+      //STREAMING = Transmitindo
+      //LISTENING = Ouvindo
+      //PLAYING = Jogando
+      //WATCHING = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            bot.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
     console.log('Logado');
 });
 bot.on('message', message => {
