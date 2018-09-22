@@ -5,7 +5,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
     let status = [
-        {name: 'Ajuda?│/ajuda', type: '1', url: 'https://twitch.tv/srmisterii'},
+        {name: 'Ajuda?│/ajuda', type: '3',},
         {name: '😍Nighty » Community😍', type: '3'},
         {name: '😉Steam😉', type: '0'},
         {name: 'Sr.Misterii│YouTube', type: '2'},
