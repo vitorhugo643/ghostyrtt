@@ -72,42 +72,6 @@ client.on("message", async message => {
     message.delete().catch(O_o=>{});
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
-  if(comando === "apagar") {
-    if(!message.member.roles.some(r=>[""].includes(r.name)) )
-    return message.reply("Desculpe mais você não tem permissão para usar isto!");
-    const deleteCount = parseInt(args[0], 10);
-    message.delete().catch(O_o=>{});
-    if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Coloque ou forneça um número entre 2 e 100 para remover as mensagens!");
-    
-    const fetched = await message.channel.fetchMessages({limit: deleteCount});
-    message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
-  }
-  if(comando === "aviso") { 
-    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
-    return message.reply("Desculpe mais você não tem permissão para usar isto!");
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});
-    message.channel.send("@everyone\n\n"+ sayMessage);
-  }
-  if(comando === "urgente") { 
-    if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
-    return message.reply("Desculpe mais você não tem permissão para usar isto!");
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});
-    message.channel.send("@here\n\n"+ sayMessage);
-  }
-  if(comando === "ajuda") {
-    const deleteCount = parseInt(args[0], 10);
-    message.delete().catch(O_o=>{});
-    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
-  }
-  if(comando === "criador") {
-    const deleteCount = parseInt(args[0], 10);
-    message.delete().catch(O_o=>{});
-    message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
-  }
 });
 
 
