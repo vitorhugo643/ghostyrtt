@@ -30,8 +30,11 @@ bot.on('message', message => {
 
         message.channel.send('Comandos enviado no seu privado.');
 
-message.author.send('Olá, @${message.reply} aqui está os comandos\n \n/ajuda\n \n/comandos\n \nAinda vamos adicionar mais comandos!')
+message.author.send('Olá, aqui está os comandos\n \n/ajuda\n \n/comandos\n \n/criador\n \nAinda vamos adicionar mais comandos!')
 }
+    if (message.content.startsWith('/criador')){
+        message.channel.send('Meu criador: NitrooPVP#4025.');
+    }
 });
 bot.on('message', message => {
     let arraymsg = message.content.split(" ");
