@@ -11,9 +11,9 @@ bot.on('message', message => {
     }
     if (message.content.startsWith('/comandos')){
 
-        message.channel.send('${member.author}, comandos enviado no seu privado.');
+        message.channel.send(`${member.author}, comandos enviado no seu privado.`);
 
-message.author.send('${member.author},\n \n \n \nOlá, aqui está os comandos\n \n/ajuda\n \n/comandos\n \n/criador\n \nAinda vamos adicionar mais comandos!')
+message.author.send(`${member.author},\n \n \n \nOlá, aqui está os comandos\n \n/ajuda\n \n/comandos\n \n/criador\n \nAinda vamos adicionar mais comandos!`)
 }
     if (message.content.startsWith('/criador')){
         message.channel.send('Meu criador: NitrooPVP#4025.');
