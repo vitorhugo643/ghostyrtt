@@ -4,26 +4,10 @@ const config = require("./config.json");
 
 
 client.on("ready", () => {
-    let status = [
-        {name: 'Ajuda?│/ajuda', type: '3',},
-        {name: '😍Nighty » Community😍', type: '3'},
-        {name: '😉Steam😉', type: '0'},
-        {name: 'Sr.Misterii│YouTube', type: '2'},
-      ];
-      
-      // 1 = Transmitindo
-      // 2 = Ouvindo
-      // 0 = Jogando
-      // 3 = Assistindo
-      
-        function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            client.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 1
-  });
+   client.user.setPresence(
+       { game: { name: 'comando', type: 1, url: 'https://www.twitch.tv/ladonegro'},
+       { game: { name: 'ajud?|/ajuda', type: 2, url: 'https://www.twitch.tv/ladonegro'} 
+});
 
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
