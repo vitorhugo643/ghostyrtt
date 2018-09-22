@@ -5,6 +5,8 @@ const config = require("./config.json");
 client.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'fui desenvolvido pelo NitrooPVP#4025', type: 'LISTENING'},
+        {name: 'meu bot ajuda você', type: 'PLAYING'},
         {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
       ];
       
