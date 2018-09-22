@@ -4,7 +4,7 @@ const config = require("./config.json");
 
 client.on('ready', () =>{
     let status = [
-        {name: 'Ajuda?│!ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
         {name: 'heart_eyesNighty » Communityheart_eyes', type: 'LISTENING'},
         {name: 'winkSteamwink', type: 'PLAYING'},
         {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
@@ -38,4 +38,4 @@ message.author.send('${member.author},\n \n \n \nOlá, aqui está os comandos\n 
     }
 });
 
-client.login(CONFIG.TOKEN);
+client.login(process.env.BOT_TOKEN);
