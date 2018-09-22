@@ -96,6 +96,20 @@ client.on("message", async message => {
       .catch(error => message.reply(`Desculpe ${message.author} não consegui expulsar o membro devido o: ${error}`));
     message.reply(`${member.user.tag} foi kickado por ${message.author.tag}\nMotivo: ${reason}`);
   }
+   if(comando === "ban") {
+    if(!message.member.hasPermissions("MANAGE_ROLES"))
+      return message.reply("Desculpe, você não tem permissão para usar isto!");
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("Por favor mencione um membro válido deste servidor");
+    if(!member.bannable) 
+      return message.reply("Eu não posso banir este usuário! Eles pode ter um cargo mais alto ou eu não tenho permissões de banir?");
+    let reason = args.slice(1).join(' ');
+    if(!reason) reason = "Nenhuma razão fornecida";
+    await member.ban(reason)
+      .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
+    message.reply(`${member.user.tag} foi banido por ${message.author.tag} Motivo: ${reason}`);
+  }
 });
 
 
