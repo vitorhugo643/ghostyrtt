@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+  const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
 
@@ -38,25 +38,41 @@ client.on('ready', () =>{
         setStatus();
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
+
 client.on("guildCreate", guild => {
   console.log(`O Nighty BOT entrou no servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
+
 client.on("guildDelete", guild => {
   console.log(`O Nighty BOT foi removido do servidor: ${guild.name} (id: ${guild.id})`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
+
+
 client.on("message", async message => {
   let responseObject = {
     "oi" : "Olá, como você está hoje?",
     "bem" : "Que bom que você está bem :slight_smile:"
   };
-  if(comando === "/ping") {
+  
+  if (responseObject[message.content]){
+    message.channel.send(responseObject[message.content]);
+  }
+
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+    if(!message.content.startsWith(config.prefix)) return;
+
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const comando = args.shift().toLowerCase();
+  
+  if(comando === "ping") {
     const m = await message.channel.send("Ping?");
     message.delete().catch(O_o=>{});
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
-  if(comando === "/apagar") {
+  if(comando === "apagar") {
     if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const deleteCount = parseInt(args[0], 10);
@@ -68,26 +84,26 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
   }
-  if(comando === "/aviso") { 
+  if(comando === "aviso") { 
     if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send("@everyone\n\n"+ sayMessage);
   }
-  if(comando === "/urgente") { 
+  if(comando === "urgente") { 
     if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send("@here\n\n"+ sayMessage);
   }
-  if(comando === "/ajuda") {
+  if(comando === "ajuda") {
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
     message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- !apagar <2 a 100> - Apagar as mensagens do chat.\n- !aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- !ping - Para ver seu ping/ms.\n- !criador - Para ver quem e meu Pai/Criador.");
   }
-  if(comando === "/criador") {
+  if(comando === "criador") {
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
     message.reply("\n\nQuem e meu Pai/Criador\n\n» Sr.Misterii\n» Canal: https://www.youtube.com/Misterii");
