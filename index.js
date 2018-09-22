@@ -6,14 +6,6 @@ const config = require("./config.json");
 client.on("ready", () => {
   console.log(`Bot foi iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores.`); 
   client.user.setActivity(`Eu estou em ${client.guilds.size} servidores`);
-// caso queira o bot trasmitindo use:
-/*
-   client.user.setPresence({ game: { name: 'comando', type: 1, url: 'https://www.twitch.tv/ladonegro'} });
-    //0 = Jogando
-    //  1 = Transmitindo
-    //  2 = Ouvindo
-    //  3 = Assistindo
-      */
 });
 
 client.on("guildCreate", guild => {
@@ -36,18 +28,16 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
   
-  // coamdno ping
+
   if(comando === "ping") {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`);
   }
-  //comando falar
   if(comando === "say") { 
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
   }
-//comando apagar
   if(comando === "apagar") {
     const deleteCount = parseInt(args[0], 10);
     if(!deleteCount || deleteCount < 2 || deleteCount > 100)
@@ -57,9 +47,7 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
   }
-  // comando chutar 
   if(comando === "kick") {
-//adicione o nome dos cargos que vc quer que use esse comando!
     if(!message.member.roles.some(r=>["Nome do cargo 1", "Nome de outro cargo 2"].includes(r.name)) )
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -76,7 +64,6 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} foi kickado por ${message.author.tag} Motivo: ${reason}`);
 
   }
-  // comando ban
   if(comando === "ban") {
     //adicione o nome do cargo que vc quer que use esse comando!
     if(!message.member.roles.some(r=>["Nome do cargo"].includes(r.name)) )
