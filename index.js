@@ -90,7 +90,7 @@ client.on("message", async message => {
       return message.reply("Eu não posso expulsar este usuário! Eles pode ter um cargo mais alto ou eu não tenho permissões de expulsar?");
     
     let reason = args.slice(1).join(' ');
-    if(!reason) reason = "\nNenhuma razão fornecida";
+    if(!reason) reason = "Nenhuma razão fornecida";
     
     await member.kick(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui expulsar o membro devido o: ${error}`));
