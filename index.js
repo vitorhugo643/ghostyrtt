@@ -50,47 +50,5 @@ client.on("guildDelete", guild => {
 });
 
 
-client.on("message", async message => {
-  let responseObject = {
-    "oi" : "Olá, como você está hoje?",
-    "bem" : "Que bom que você está bem :slight_smile:"
-  };
-  
-  if (responseObject[message.content]){
-    message.channel.send(responseObject[message.content]);
-  }
-
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-    if(!message.content.startsWith(config.prefix)) return;
-
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const comando = args.shift().toLowerCase();
-  
-  if(comando === "ping") {
-    const m = await message.channel.send("Ping?");
-    message.delete().catch(O_o=>{});
-    m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
-  }
-  if(comando === "anuncio") {
-
-if(!message.member.hasPermission("MANAGE_ROLES")) return;
-const sayMessage = args.join(" ");
-message.delete()
-
-const embed = new Discord.RichEmbed()
-
-.setTitle('📢 **Anuncio** 📢')
-.setDescription(sayMessage)
-.setFooter(`Enviado por: ${message.author.username}`)
-.setTimestamp(new Date())
-.setColor('RANDOM')
-.setThumbnail(message.guild.iconURL);
-
-
-message.channel.send(embed);
-}
-});
-
 
 client.login(config.token);
