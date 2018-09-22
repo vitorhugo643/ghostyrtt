@@ -3,6 +3,26 @@ const client = new Discord.Client();
 
  
 client.on('ready', () => {
+  let status = [
+        {name: 'Ajuda?│a/juda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'Tuê » Communityheart_eyes', type: 'LISTENING'},
+        {name: 'winkSteamwink', type: 'PLAYING'},
+        {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
+      ];
+      
+      //STREAMING = Transmitindo
+      //LISTENING = Ouvindo
+      //PLAYING = Jogando
+      //WATCHING = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            client.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
+});
     console.log('Logado');
 });
 client.on('message', message => {
