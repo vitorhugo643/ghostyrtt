@@ -4,9 +4,9 @@ const client = new Discord.Client();
  
 client.on('ready', () => {
   let status = [
-        {name: 'Ajuda?│/juda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: 'Tuê » Communityheart_eyes', type: 'LISTENING'},
-        {name: 'winkSteamwink', type: 'PLAYING'},
+        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'Tuê', type: 'LISTENING'},
+        {name: 'test', type: 'PLAYING'},
         {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
       ];
       
