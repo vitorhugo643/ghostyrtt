@@ -95,6 +95,7 @@ client.on("message", async message => {
     await member.kick(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui expulsar o membro devido o: ${error}`));
     message.reply(`${member.user.tag} foi kickado por ${message.author.tag}\nMotivo: ${reason}`);
+    message.channels.get('480917048860344321')
   }
    if(comando === "ban") {
     if(!message.member.hasPermissions("MANAGE_ROLES"))
