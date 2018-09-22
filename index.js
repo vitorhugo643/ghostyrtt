@@ -19,7 +19,7 @@ client.on('ready', () =>{
             let randomStatus = status[Math.floor(Math.random() * status.length)];
             client.user.setPresence({game: randomStatus});
         }
-      
+       
         setStatus();
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
