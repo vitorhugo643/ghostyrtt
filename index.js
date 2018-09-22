@@ -57,14 +57,14 @@ client.on("message", async message => {
       .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
   }
   if(comando === "aviso") { 
-    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    if(!message.member.hasPermissions("MANAGE_ROLES"))
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send("@everyone\n\n"+ sayMessage);
   }
   if(comando === "urgente") { 
-    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    if(!message.member.hasPermissions("MANAGE_ROLES"))
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
@@ -81,7 +81,7 @@ client.on("message", async message => {
     message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
   }
   if(comando === "kick") {
-    if(!message.member.roles.some(r=>["🌟DONO", "++"].includes(r.name)) )
+    if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
