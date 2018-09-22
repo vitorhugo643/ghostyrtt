@@ -25,7 +25,7 @@ client.on('message', message => {
     if (message.content.startsWith('/ajuda')){
         message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NitrooPVP#4025.');
     }
-    if (message.content.startsWith('/comandos')){
+    if (message.content.startsWith(`/comandos`)){
 
         message.channel.send(`${member.author}, comandos enviado no seu privado.`);
 
