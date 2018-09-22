@@ -108,7 +108,7 @@ client.on("message", async message => {
     if(!reason) reason = "Nenhuma razão fornecida";
     await member.ban(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
-    message.reply(`${member.user.tag} foi banido por ${message.author.tag} Motivo: ${reason}`);
+    message.reply(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
   }
 });
 
