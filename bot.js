@@ -3,7 +3,6 @@ const bot = new Discord.Client();
 
  
 bot.on('ready', () => {
-    const activities = ['Oq vc quer', 'oq vc quer', 'você morrendo 💀.', `com ${bot.users.size} demônios.`, 'você se matando.', 'você. ']
     let counter = 0
     setInterval(function() {
         counter+= 1
