@@ -4,6 +4,25 @@ const config = require("./config.json");
 
 
 client.on("ready", () => {
+   let status = [
+        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: '😍Nighty » Community😍', type: 'LISTENING'},
+        {name: '😉Steam😉', type: 'PLAYING'},
+        {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
+      ];
+      
+      //STREAMING = Transmitindo
+      //LISTENING = Ouvindo
+      //PLAYING = Jogando
+      //WATCHING = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            client.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos/
   console.log(`Bot foi iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores.`); 
   client.user.setActivity(`Eu estou em ${client.guilds.size} servidores`);
 });
@@ -20,6 +39,14 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  let responseObject = {
+    "oi" : "Olá, como você está hoje?",
+    "bem" : "Que bom que você está bem :slight_smile:"
+  };
+  
+  if (responseObject[message.content]){
+    message.channel.send(responseObject[message.content]);
+  }
 
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -28,27 +55,49 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const comando = args.shift().toLowerCase();
   
-
   if(comando === "ping") {
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`);
-  }
-  if(comando === "say") { 
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});  
-    message.channel.send(sayMessage);
+    message.delete().catch(O_o=>{});
+    m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
   if(comando === "apagar") {
+    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const deleteCount = parseInt(args[0], 10);
+    message.delete().catch(O_o=>{});
     if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Por favor, forneça um número entre 2 e 100 para o número de mensagens a serem excluídas");
+      return message.reply("Coloque ou forneça um número entre 2 e 100 para remover as mensagens!");
     
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
   }
+  if(comando === "aviso") { 
+    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    return message.reply("Desculpe mais você não tem permissão para usar isto!");
+    const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});
+    message.channel.send("@everyone\n\n"+ sayMessage);
+  }
+  if(comando === "urgente") { 
+    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    return message.reply("Desculpe mais você não tem permissão para usar isto!");
+    const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});
+    message.channel.send("@here\n\n"+ sayMessage);
+  }
+  if(comando === "ajuda") {
+    const deleteCount = parseInt(args[0], 10);
+    message.delete().catch(O_o=>{});
+    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
+  }
+  if(comando === "criador") {
+    const deleteCount = parseInt(args[0], 10);
+    message.delete().catch(O_o=>{});
+    message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
+  }
   if(comando === "kick") {
-    if(!message.member.roles.some(r=>["Nome do cargo 1", "Nome de outro cargo 2"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["🌟DONO", "++"].includes(r.name)) )
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
@@ -62,24 +111,7 @@ client.on("message", async message => {
     await member.kick(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui expulsar o membro devido o: ${error}`));
     message.reply(`${member.user.tag} foi kickado por ${message.author.tag} Motivo: ${reason}`);
-
   }
-  if(comando === "ban") {
-    //adicione o nome do cargo que vc quer que use esse comando!
-    if(!message.member.roles.some(r=>["Nome do cargo"].includes(r.name)) )
-      return message.reply("Desculpe, você não tem permissão para usar isto!");
-    let member = message.mentions.members.first();
-    if(!member)
-      return message.reply("Por favor mencione um membro válido deste servidor");
-    if(!member.bannable) 
-      return message.reply("Eu não posso banir este usuário! Eles pode ter um cargo mais alto ou eu não tenho permissões de banir?");
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "Nenhuma razão fornecida";
-    await member.ban(reason)
-      .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
-    message.reply(`${member.user.tag} foi banido por ${message.author.tag} Motivo: ${reason}`);
-  }
-  
 });
 
 
