@@ -72,6 +72,24 @@ client.on("message", async message => {
     message.delete().catch(O_o=>{});
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
+  if(comando === "anuncio") {
+
+if(!message.member.hasPermission("MANAGE_ROLES")) return;
+const sayMessage = args.join(" ");
+message.delete()
+
+const embed = new Discord.RichEmbed()
+
+.setTitle('📢 **Anuncio** 📢')
+.setDescription(sayMessage)
+.setFooter(`Enviado por: ${message.author.username}`)
+.setTimestamp(new Date())
+.setColor('RANDOM')
+.setThumbnail(message.guild.iconURL);
+
+
+message.channel.send(embed);
+}
 });
 
 
