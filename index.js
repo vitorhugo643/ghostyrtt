@@ -38,4 +38,4 @@ message.author.send('${member.author},\n \n \n \nOlá, aqui está os comandos\n 
     }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(config.token);
