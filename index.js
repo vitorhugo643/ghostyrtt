@@ -22,7 +22,6 @@ client.on('ready', () => {
       
         setStatus();
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
-});
     console.log('Logado');
 });
 client.on('message', message => {
