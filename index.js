@@ -111,6 +111,11 @@ client.on("message", async message => {
       .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
     message.reply(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
   }
+   if(comando === "say") { 
+    const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});  
+    message.channel.send(sayMessage);
+  }
 });
 
 
