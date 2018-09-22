@@ -48,7 +48,24 @@ client.on("guildDelete", guild => {
   console.log(`O Nighty BOT foi removido do servidor: ${guild.name} (id: ${guild.id})`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
-
+client.on('message', message => {
+    let arraymsg = message.content.split(" ");
+let cmd = arraymsg[0].toLowerCase()
+    if(cmd === 'mute'){
+if (message.member.hasPermissions('MANAGE_ROLES')) return message.channel.send('Você não tem permissão para executar este comando!')
+  if (!args[0]) return message.channel.send("Mencione o membro!")
+  var user = message.mentions.members.first()
+  var razao = args.slice(1).join(' ') 
+  if (!razao) razao = "sem motivo"
+  var muteRole = message.guild.roles.find("name", "Muted")
+  if(!muteRole) return message.channel.send("Não encontrei o cargo Muted.");
+  try {
+    user.addRole(muteRole)
+    message.channel.send(user.tag +" foi mutado por"  + razao + "!");
+  } catch (err) { 
+    message.channel.send("Eu não tenho as permissões necessárias para mutar um membro!");
+  }
+}});
 
 
 client.login(config.token);
