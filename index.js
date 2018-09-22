@@ -4,9 +4,7 @@ const config = require("./config.json");
 
 
 client.on("ready", () => {
-   client.user.setPresence(
-       { game: { name: 'comando', type: 1, url: 'https://www.twitch.tv/ladonegro'},
-       { game: { name: 'ajud?|/ajuda', type: 2, url: 'https://www.twitch.tv/ladonegro'} 
+   client.user.setPresence({ game: { name: 'ajuda?|/ajuda', type: 2, url: 'https://www.twitch.tv/ladonegro'}
 });
 
 client.on("guildCreate", guild => {
