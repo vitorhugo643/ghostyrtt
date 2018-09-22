@@ -30,7 +30,7 @@ bot.on('message', message => {
 
         message.channel.send('Comandos enviado no seu privado.');
 
-message.author.send('Olá, @${member} aqui está os comandos\n \n/ajuda\n \n/comandos\n \nAinda vamos adicionar mais comandos!')
+message.author.send('Olá, @${message.reply} aqui está os comandos\n \n/ajuda\n \n/comandos\n \nAinda vamos adicionar mais comandos!')
 }
 });
 bot.on('message', message => {
