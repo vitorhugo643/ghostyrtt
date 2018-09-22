@@ -101,12 +101,12 @@ client.on("message", async message => {
   if(comando === "ajuda") {
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
-    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- !apagar <2 a 100> - Apagar as mensagens do chat.\n- !aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- !ping - Para ver seu ping/ms.\n- !criador - Para ver quem e meu Pai/Criador.");
+    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
   }
   if(comando === "criador") {
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
-    message.reply("\n\nQuem e meu Pai/Criador\n\n» Sr.Misterii\n» Canal: https://www.youtube.com/Misterii");
+    message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
   }
 });
 
