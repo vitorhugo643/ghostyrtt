@@ -51,7 +51,7 @@ client.on("guildDelete", guild => {
 client.on('message', message => {
     let arraymsg = message.content.split(" ");
 let cmd = arraymsg[0].toLowerCase()
-    if(cmd === 'mute'){
+    if(comando === "mute"){
 if (message.member.hasPermissions('MANAGE_ROLES')) return message.channel.send('Você não tem permissão para executar este comando!')
   if (!args[0]) return message.channel.send("Mencione o membro!")
   var user = message.mentions.members.first()
