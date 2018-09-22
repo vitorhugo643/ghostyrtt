@@ -5,9 +5,7 @@ const config = require("./config.json");
 client.on('ready', () =>{
     let status = [
         {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: 'heart_eyesNighty » Communityheart_eyes', type: 'LISTENING'},
-        {name: 'winkSteamwink', type: 'PLAYING'},
-        {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
+        {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
       ];
       
       //STREAMING = Transmitindo
