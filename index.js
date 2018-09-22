@@ -4,12 +4,25 @@ const config = require("./config.json");
 
 
 client.on("ready", () => {
-    client.user.setPresence({ game: { name: 'minecraft', type: 0, } });
-    client.user.setPresence({ game: { name: 'meu criado falando.', type: 2, } });
-    //0 = Jogando
-    //  1 = Transmitindo
-    //  2 = Ouvindo
-    //  3 = Assistindo
+    let status = [
+        {name: 'Ajuda?│!ajuda', type: '1', url: 'https://twitch.tv/srmisterii'},
+        {name: '😍Nighty » Community😍', type: '3'},
+        {name: '😉Steam😉', type: '0'},
+        {name: 'Sr.Misterii│YouTube', type: '2'},
+      ];
+      
+      // 1 = Transmitindo
+      // 2 = Ouvindo
+      // 0 = Jogando
+      // 3 = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            client.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 1
   });
 
 client.on("guildCreate", guild => {
