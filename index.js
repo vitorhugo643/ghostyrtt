@@ -38,35 +38,19 @@ client.on('ready', () =>{
         setStatus();
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
-
 client.on("guildCreate", guild => {
   console.log(`O Nighty BOT entrou no servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
-
 client.on("guildDelete", guild => {
   console.log(`O Nighty BOT foi removido do servidor: ${guild.name} (id: ${guild.id})`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores.`);
 });
-
-
 client.on("message", async message => {
   let responseObject = {
     "oi" : "Olá, como você está hoje?",
     "bem" : "Que bom que você está bem :slight_smile:"
   };
-  
-  if (responseObject[message.content]){
-    message.channel.send(responseObject[message.content]);
-  }
-
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-    if(!message.content.startsWith(config.prefix)) return;
-
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const comando = args.shift().toLowerCase();
-  
   if(comando === "/ping") {
     const m = await message.channel.send("Ping?");
     message.delete().catch(O_o=>{});
