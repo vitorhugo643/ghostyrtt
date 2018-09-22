@@ -73,7 +73,7 @@ client.on("message", async message => {
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
   }
   if(comando === "apagar") {
-    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    if(!message.member.roles.some(r=>[""].includes(r.name)) )
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
@@ -92,7 +92,7 @@ client.on("message", async message => {
     message.channel.send("@everyone\n\n"+ sayMessage);
   }
   if(comando === "urgente") { 
-    if(!message.member.roles.some(r=>["🌟DONO", "👾DIRETORIA [BOT]"].includes(r.name)) )
+    if(!message.member.hasPermissions("BAN_MEMBERS")) return message.reply("você não tem permissão de usar esse comando")
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
