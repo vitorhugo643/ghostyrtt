@@ -3,23 +3,20 @@ const bot = new Discord.Client();
 
  
 bot.on('ready', () => {
-    let status = [
-        {name: 'em desenvolvimento.', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: 'estou sendo desenvolvido pelo NitrooPVP#4025.', 'LISTENING'},
-      ];
-      
-      //STREAMING = Transmitindo
-      //LISTENING = Ouvindo
-      //PLAYING = Jogando
-      //WATCHING = Assistindo
-      
-        function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            bot.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
+    const activities = ['Oq vc quer', 'oq vc quer', 'você morrendo 💀.', `com ${bot.users.size} demônios.`, 'você se matando.', 'você. ']
+    let counter = 0
+    setInterval(function() {
+        counter+= 1
+        counter %= activities.length
+    }, 10000)
+
+    const activities2 = ['LISTENING', 'WATCHING', 'PLAYING', 'WATCHING']
+    let counter2 = 0
+    setInterval(function() {
+        bot.user.setActivity(activities[counter], { type: activities2[counter2] })
+        counter2+= 1
+        counter2 %= activities2.length
+    }, 10000)
     console.log('Logado');
 });
 bot.on('message', message => {
