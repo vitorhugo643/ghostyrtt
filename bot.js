@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-
+ 
 bot.on('ready', () => {
     let status = [
         {name: 'em desenvolvimento.', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
