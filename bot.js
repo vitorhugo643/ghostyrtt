@@ -3,19 +3,6 @@ const bot = new Discord.Client();
 
  
 bot.on('ready', () => {
-    let counter = 0
-    setInterval(function() {
-        counter+= 1
-        counter %= activities.length
-    }, 10000)
-
-    const activities2 = ['LISTENING', 'WATCHING', 'PLAYING', 'WATCHING']
-    let counter2 = 0
-    setInterval(function() {
-        bot.user.setActivity(activities[counter], { type: activities2[counter2] })
-        counter2+= 1
-        counter2 %= activities2.length
-    }, 10000)
     console.log('Logado');
 });
 bot.on('message', message => {
