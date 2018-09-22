@@ -24,16 +24,16 @@ client.on('ready', () =>{
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 client.on('message', message => {
-    if (message.content.startsWith('/ajuda')){
+    if (message.content.startsWith('ajuda')){
         message.channel.send('Estou em desenvolvimento, então quando adicionar comandos, meu criador avisara.\nCriador: NitrooPVP#4025.');
     }
-    if (message.content.startsWith('/comandos')){
+    if (message.content.startsWith('comandos')){
 
         message.channel.send('${member.author}, comandos enviado no seu privado.');
 
 message.author.send('${member.author},\n \n \n \nOlá, aqui está os comandos\n \n/ajuda\n \n/comandos\n \n/criador\n \nAinda vamos adicionar mais comandos!')
 }
-    if (message.content.startsWith('/criador')){
+    if (message.content.startsWith('criador')){
         message.channel.send('Meu criador: NitrooPVP#4025.');
     }
 });
