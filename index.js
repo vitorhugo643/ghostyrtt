@@ -5,6 +5,7 @@ const config = require("./config.json");
 
 client.on("ready", () => {
     client.user.setPresence({ game: { name: 'minecraft', type: 0, } });
+    client.user.setPresence({ game: { name: 'meu criado falando.', type: 2, } });
     //0 = Jogando
     //  1 = Transmitindo
     //  2 = Ouvindo
