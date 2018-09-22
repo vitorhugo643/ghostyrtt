@@ -4,7 +4,7 @@ const client = new Discord.Client();
  
 client.on('ready', () => {
   let status = [
-        {name: 'Ajuda?│a/juda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'Ajuda?│/juda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
         {name: 'Tuê » Communityheart_eyes', type: 'LISTENING'},
         {name: 'winkSteamwink', type: 'PLAYING'},
         {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
@@ -22,7 +22,6 @@ client.on('ready', () => {
       
         setStatus();
         setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
-    console.log('Logado');
 });
 client.on('message', message => {
     if (message.content.startsWith('/ajuda')){
