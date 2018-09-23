@@ -28,7 +28,7 @@ client.on("message", async message => {
     "bem" : "Que bom que você está bem :slight_smile:"
   };
   
-  if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em #comandos e digite o comando!');
+
   if (responseObject[message.content]){
     message.channel.send(responseObject[message.content]);
   }
