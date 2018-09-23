@@ -98,7 +98,7 @@ client.on("message", async message => {
     message.channels.get("491312484406525953").send(`${member.user.tag} foi expulso por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "ban") {
-     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em #comandos e digite o comando!');
+     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em #🔧bot-comandos e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first();
