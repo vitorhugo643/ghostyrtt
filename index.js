@@ -117,5 +117,5 @@ client.on("message", async message => {
   }
 });
 
-t
+
 client.login(config.token);
