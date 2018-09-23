@@ -109,8 +109,7 @@ client.on("message", async message => {
     if(!reason) reason = "Nenhuma razão fornecida";
     await member.ban(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
-    message.reply(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
-      message.channels.get('480917048860344321')
+    message.channels.get('480917048860344321').send(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "say") { 
     const sayMessage = args.join(" ");
