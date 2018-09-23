@@ -2,7 +2,7 @@ const Discord = require("discord.js"); //baixar a lib
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
 
-
+ 
 client.on("ready", () => {
    let status = [
         {name: 'Ajuda?│!ajuda', type: '0'},
