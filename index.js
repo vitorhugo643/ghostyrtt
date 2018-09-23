@@ -94,7 +94,7 @@ client.on("message", async message => {
     
     await member.kick(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui expulsar o membro devido o: ${error}`));
-    message.channels.get("493465759524323348").send(`${member.user.tag} foi expulso por ${message.author.tag}\nMotivo: ${reason}`);
+    message.channels.get("491312484406525953").send(`${member.user.tag} foi expulso por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "ban") {
     if(!message.member.hasPermissions("MANAGE_ROLES"))
@@ -108,7 +108,7 @@ client.on("message", async message => {
     if(!reason) reason = "Nenhuma razão fornecida";
     await member.ban(reason)
       .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
-    message.channels.get("493465759524323348").send(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
+    message.channels.get("491312484406525953").send(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "say") { 
     const sayMessage = args.join(" ");
