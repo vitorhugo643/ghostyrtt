@@ -4,11 +4,25 @@ const config = require("./config.json");
 
 
 client.on("ready", () => {
-   client.user.setPresence({ game: { name: 'uma pessoa pedindo ajuda ? | /ajuda', type: 2,} });
+   let status = [
+        {name: 'Ajuda?│!ajuda', type: '0'},
+        {name: '😍Nighty » Community😍', type: '1'},
+        {name: '😉Steam😉', type: '2'},
+        {name: 'Sr.Misterii│YouTube', type: '3'},
+      ];
+   
     //0 = Jogando
     //  1 = Transmitindo
     //  2 = Ouvindo
     //  3 = Assistindo
+   
+   function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            client.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 
 client.on("guildCreate", guild => {
