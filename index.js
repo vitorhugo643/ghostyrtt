@@ -4,7 +4,7 @@ const config = require("./config.json");
 
  
 client.on("ready", () => {
-   let status = [
+   console.log = [
         {name: 'Ajuda?│/ajuda', type: 'LISTENING'},
         {name: '😍Tuê » Community😍', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
         {name: '😉Steam😉', type: 'PLAYING'},
