@@ -5,16 +5,16 @@ const config = require("./config.json");
  
 client.on("ready", () => {
    let status = [
-        {name: 'Ajuda?│!ajuda', type: '0'},
-        {name: '😍Nighty » Community😍', type: '1'},
-        {name: '😉Steam😉', type: '2'},
-        {name: 'Sr.Misterii│YouTube', type: '3'},
+        {name: 'Ajuda?│/ajuda', type: 'LISTENING'},
+        {name: '😍Tuê » Community😍', type: 'STREAMING'},
+        {name: '😉Steam😉', type: 'PLAYING'},
+        {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
       ];
    
-    //0 = Jogando
-    //  1 = Transmitindo
-    //  2 = Ouvindo
-    //  3 = Assistindo
+    //STREAMING = Transmitindo
+    //LISTENING = Ouvindo
+    //PLAYING = Jogando
+    //WATCHING = Assistindo
    
    function setStatus() {
             let randomStatus = status[Math.floor(Math.random() * status.length)];
@@ -129,47 +129,7 @@ client.on("message", async message => {
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
   }
- if(comando === "tempmute") {
- let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.reply("Couldn't find user.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
-  let muterole = message.guild.roles.find(`name`, "muted");
-  if(!muterole){
-    try{
-      muterole = await message.guild.createRole({
-        name: "muted",
-        color: "#000000",
-        permissions:[]
-      })
-      message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(muterole, {
-          SEND_MESSAGES: false,
-          ADD_REACTIONS: false
-        });
-      });
-    }catch(e){
-      console.log(e.stack);
-    }
-  }
-  let mutetime = args[1];
-  if(!mutetime) return message.reply("You didn't specify a time!");
-
-  await(tomute.addRole(muterole.id));
-  message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
-
-  setTimeout(function(){
-    tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
-  }, ms(mutetime));
-
-
-}
-
-module.exports.help = {
-  name: "tempmute"
-}
- }
 });
-
+  
 
 client.login(config.token);
