@@ -4,26 +4,12 @@ const config = require("./config.json");
 
  
 client.on("ready", () => {
-   console.log = [
-        {name: 'Ajuda?│/ajuda', type: 'LISTENING'},
-        {name: '😍Tuê » Community😍', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: '😉Steam😉', type: 'PLAYING'},
-        {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
-      ];
-   
-    //STREAMING = Transmitindo
-    //LISTENING = Ouvindo
-    //PLAYING = Jogando
-    //WATCHING = Assistindo
-   
-   function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            client.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
-});
+ client.user.setPresence({ game: { name: 'alguém gritando por ajudan | /ajuda', type: 2,}});
+    //0 = Jogando
+    //  1 = Transmitindo
+    //  2 = Ouvindo
+    //  3 = Assistindo
+   });
 
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
