@@ -18,7 +18,7 @@ client.on('ready', () => {
     var inst = setInterval(change, 60000);
 
     function change() {
-      client.user.setActivity(text[counter]);;
+      client.user.setActivity(text[counter]);
       counter++;
       if (counter >= text.length) {
         counter = 0;
