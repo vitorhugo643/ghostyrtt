@@ -151,6 +151,29 @@ client.on("message", async message => {
             }
         })
     }
+   if(comando === "sugestao") {
+   module.exports.run = async (client, message, args) => {
+const sugestao = args.join(" ").slice(0);
+const user = message.author.username;
+if (!message.member.hasPermission(["SEND_MESSAGES"])) return message.reply("**Você não tem permissão para fazer uma sugestão!**");
+
+const embed = new Discord.RichEmbed()
+
+    embed.setTitle("Sugestão")
+    embed.setThumbnail(user.displayAvatarURL)
+    embed.setFooter("Obrigado pela sua sugestão", user.displayAvatarURL)
+    embed.addField("Sugestão:", sugestao)
+    embed.addField("Sugerido Por:", user)
+    embed.setColor("#f49542")
+    client.channels.find('id', 'ID DA SALA').send(embed)
+    .then(async function (embed) {
+    await embed.react("👍")
+    await embed.react("👎")
+    await embed.react("483650574089322498")
+      });
+      message.channel.send("🍭 **| Obrigado sensei, sua sugestão foi enviada para a nossa STAFF!**")
+ }
+}
 });
   
 
