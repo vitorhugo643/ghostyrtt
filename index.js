@@ -81,19 +81,16 @@ client.on("message", async message => {
     message.channel.send("@here\n\n"+ sayMessage);
   }
   if(comando === "ajuda") {
-   if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
     message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
   }
   if(comando === "criador") {
-   if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
-    const deleteCount = parseInt(args[0], 10);
+   const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
     message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
   }
   if(comando === "kick") {
-   if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -110,7 +107,6 @@ client.on("message", async message => {
     message.channels.get("491312484406525953").send(`${member.user.tag} foi expulso por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "ban") {
-     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first();
