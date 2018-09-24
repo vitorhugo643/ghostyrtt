@@ -236,7 +236,8 @@ const embed = new Discord.RichEmbed()
         .setThumbnail(message.guild.iconURL)
         .setFooter(`Pedido por ${message.author.tag}`, message.author.avatarURL)
         message.channel.send(embed)
-}}
+  }
+ }
 });
   
 
