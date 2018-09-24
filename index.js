@@ -12,27 +12,23 @@ client.on('guildMemberAdd', member => {
   channel.send(`Bem-vindo, ${member} ao grupo discord INSCRITOS » COMMUNITY, espero que voce goste de tudo!\n \nCanal do dono:https://youtu.be/yRecky\n \nBot foi desenvolvido pelo: NitrooPVP#4025. `);
 });
 
-client.on('ready', () =>{
-    let status = [
-        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: 'alguém gritando por ajuda | /ajuda', type: 'LISTENING'},
-        {name: 'os meus comandos em uma pasta | /ajuda', type: 'PLAYING'},
-        {name: 'o nitroopvp no youtube | /ajuda', type: 'WATCHING'},
-      ];
-      
-      //STREAMING = Transmitindo
-      //LISTENING = Ouvindo
-      //PLAYING = Jogando
-      //WATCHING = Assistindo
-      
-        function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            client.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
+client.on('ready', () => {
+    var text = ["Jogando", " Dormindo", "Banindo folgados", "Banindo ze ruela", "Kikando"];
+    var counter = 0;
+    var inst = setInterval(change, 60000);
+
+    function change() {
+      client.user.setActivity(text[counter]);;
+      counter++;
+      if (counter >= text.length) {
+        counter = 0;
+        
+      }
+    }
+
 });
+
+to no cel + acho q ta certo
  
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
