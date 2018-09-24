@@ -186,8 +186,8 @@ const embed = new Discord.RichEmbed()
                                     await channel.overwritePermissions(role, {
                                         SEND_MESSAGES: false,
                                         ADD_REACTIONS: false
-                                    })
-                            })
+                                    });
+                            });
                         } catch (e) {
                         }
                     }
