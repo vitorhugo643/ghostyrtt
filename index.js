@@ -5,7 +5,7 @@ const config = require("./config.json");
 
 client.on('guildMemberAdd', member => {
 
-  const channel = member.guild.channels.find("name", "entrada-saída");
+  const channel = member.guild.channels.find("name", "entrada");
 
   if (!channel) return;
   
@@ -214,7 +214,7 @@ const embed = new Discord.RichEmbed()
                         member.removeRole(role);
                     }, ms(time));
 }
- if(comando === "serverinfo"){
+ if(comando === "serverinfo") {
     const info = new Discord.RichEmbed()
         .setColor("RANDOM")
         .addField(`Informacoes do servidor`,`Membros: ${client.guilds.memberCount}\nCanais: {client.guilds.channels.size}`)
@@ -222,7 +222,7 @@ const embed = new Discord.RichEmbed()
         
     message.channel.send(info)
 }
- if (message.content.startSwith("sugestao")){
+ if (comando === "sugestao") {
 if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o GlaDOS.exe! use /sugestao (Sua sugestão)')
 var canal = message.guild.channels.find("name", "sugestões");
 if (!canal) return;
