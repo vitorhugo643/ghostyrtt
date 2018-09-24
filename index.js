@@ -136,8 +136,8 @@ client.on("message", async message => {
                                     await channel.overwritePermissions(role, {
                                         SEND_MESSAGES: false,
                                         ADD_REACTIONS: false
-                                    });
-                            });
+                                    })
+                            })
                         } catch (e) {
                         }
                     }
