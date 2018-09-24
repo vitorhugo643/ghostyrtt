@@ -150,6 +150,38 @@ client.on("message", async message => {
                         member.removeRole(role);
                     }, ms(time));
 }
+if (comando === "tempmute") {
+        let usuario1 = msgs[1];
+        let usuario2 = msgs[2];
+        let porcentagem = Math.floor((Math.random() * 100) + 1);
+        
+    
+        const embed = {
+          "color": 430763,
+          "fields": [
+            {
+              "name": "Compatibilidade",
+              "value": `${porcentagem}`
+            },
+            {
+              "name": `${kappa}`,
+              "value": "Foto",
+              "inline": true
+            },
+            {
+              "name": "♥",
+              "value": "♥",
+              "inline": true
+            },
+            {
+              "name": `${usuario2}`,
+              "value": "Foto",
+              "inline": true
+            }
+          ]
+        };
+        message.channel.send("Nome", { embed });        
+    }
 });
   
 
