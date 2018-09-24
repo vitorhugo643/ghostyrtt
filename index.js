@@ -2,7 +2,16 @@ const Discord = require("discord.js"); //baixar a lib
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
 
- 
+
+client.on('guildMemberAdd', member => {
+
+  const channel = member.guild.channels.find("name", "aaa");
+
+  if (!channel) return;
+  
+  channel.send(`bem-vindo, ${member}`);
+});
+
 client.on("ready", () => {
       client.user.setPresence({ game: { name: '/ajuda', type: 2,} });
     //0 = Jogando
