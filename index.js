@@ -237,8 +237,6 @@ const embed = new Discord.RichEmbed()
         .setFooter(`Pedido por ${message.author.tag}`, message.author.avatarURL)
         message.channel.send(embed)
 }}
-
-@Henri 
 });
   
 
