@@ -180,7 +180,7 @@ if (comando === "ship") {
             }
           ]
         };
-        message.channel.send("Nome", { embed });        
+        message.channel.send("Nome", { embed })        
     }
 });
   
