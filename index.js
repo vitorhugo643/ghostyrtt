@@ -14,10 +14,10 @@ client.on('guildMemberAdd', member => {
 
 client.on('ready', () =>{
     let status = [
-        {name: 'Ajuda?│!ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: '😍Nighty » Community😍', type: 'LISTENING'},
-        {name: '😉Steam😉', type: 'PLAYING'},
-        {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
+        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: 'alguém gritando por ajuda | /ajuda', type: 'LISTENING'},
+        {name: 'os meus comandos em uma pasta | /ajuda', type: 'PLAYING'},
+        {name: 'o nitroopvp no youtube | /ajuda', type: 'WATCHING'},
       ];
       
       //STREAMING = Transmitindo
