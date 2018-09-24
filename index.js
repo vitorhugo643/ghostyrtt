@@ -222,6 +222,21 @@ const embed = new Discord.RichEmbed()
         
     message.channel.send(info)
 }
+ if (message.content.startSwith("sugestao")){
+if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o GlaDOS.exe! use /sugestao (Sua sugestão)')
+var canal = message.guild.channels.find("name", "sugestões");
+if (!canal) return;
+canal.send({embed:{
+    'title':'Sugestão',
+    'description':args.slice(0).join(' '),
+    'thumbnail':{
+    }
+    ,'footer':{
+        'text':'Sugestão enviada por: ' + message.author.tag
+    },
+    'color':message.member.displayColor
+}})
+message.reply('Sua sugestão foi enviada com sucesso')}
 });
   
 
