@@ -1,15 +1,29 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
+const ms = require("ms");
  
 
-client.on('guildMemberAdd', member => {
+client.on('ready', () =>{
+  let status = [
+      {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii%27%7D'},
+      {name: 'teste2', type: 'LISTENING'},
+      {name: 'teste3', type: 'PLAYING'},
+      {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
+    ];
 
-  const channel = member.guild.channels.find("name", "entrada");
+    //STREAMING = Transmitindo
+    //LISTENING = Ouvindo
+    //PLAYING = Jogando
+    //WATCHING = Assistindo
 
-  if (!channel) return;
-  
-  channel.send(`Bem-vindo, ${member} ao grupo discord 30praum, espero que voce goste de tudo!\n \nNosso ip é: 30praum`);
+      function setStatus() {
+          let randomStatus = status[Math.floor(Math.random() * status.length)];
+          client.user.setPresence({game: randomStatus});
+      }
+
+      setStatus();
+      setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 
 client.on('ready', () =>{
@@ -63,7 +77,6 @@ client.on("message", async message => {
   const comando = args.shift().toLowerCase();
   
   if(comando === "ping") {
-     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     const m = await message.channel.send("Ping?");
     message.delete().catch(O_o=>{});
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
@@ -97,7 +110,7 @@ client.on("message", async message => {
   if(comando === "ajuda") {
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
-    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n\nMembros:\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
+    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n- /kick <mensagem> retirar uma pessoa do grupo discord.\n-/tempmute <mensagem> mutar uma pessoa por um tempo.\n-/ban <mensagem> banir uma pessoa do grupo discord.\n\nMembros:\n- /avatar - para ver sua foto de perfil.\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
   }
   if(comando === "criador") {
    const deleteCount = parseInt(args[0], 10);
