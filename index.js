@@ -120,67 +120,27 @@ client.on("message", async message => {
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
   }
- if (comando === "tempmute") {
-                    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-                    if (!member) return message.reply("Usuário não encontrado.");
-                    let role = message.guild.roles.find("name", "Silenciado");
-                    if (!role) {
-                        try {
-                            role = await message.guild.createRole({
-                                name: "Silenciado",
-                                color: "DEFAULT",
-                                permissions: []
-                            })
-                            message.guild.channels.forEach(async (channel, id) => {
-                                if (channel.type === "text" && channel.rolePermissions(message.guild.defaultRole).has("SEND_MESSAGES"))
-                                    await channel.overwritePermissions(role, {
-                                        SEND_MESSAGES: false,
-                                        ADD_REACTIONS: false
-                                    })
-                            })
-                        } catch (e) {
-                        }
-                    }
-                    let time = args[1];
-                    if (!time) return message.reply("Tempo incorreto, use 10(s|m|h|d).");
-                    let reason = args.slice(2).join(" ");
-                    if (!reason) reason = ("Sem motivo");
-                    member.addRole(role);
-                    setTimeout(function () {
-                        member.removeRole(role);
-                    }, ms(time));
-}
-if (comando === "ship") {
-        let usuario1 = msgs[1];
-        let usuario2 = msgs[2];
-        let porcentagem = Math.floor((Math.random() * 100) + 1);
+     if (comando === "avatar") {
+        let usuario = message.mentions.users.first() || message.author; 
+        let avatar = usuario.displayAvatarURL; 
+
         
-    
-        const embed = {
-          "color": 430763,
-          "fields": [
-            {
-              "name": "Compatibilidade",
-              "value": `${porcentagem}`
-            },
-            {
-              "name": `${kappa}`,
-              "value": "Foto",
-              "inline": true
-            },
-            {
-              "name": "♥",
-              "value": "♥",
-              "inline": true
-            },
-            {
-              "name": `${usuario2}`,
-              "value": "Foto",
-              "inline": true
+        if (avatar.endsWith(".gif")) {
+            avatar = `${usuario.displayAvatarURL}?size=2048`
+        }
+
+        
+        message.channel.send({
+            embed: {
+                title: `${usuario.tag}`, 
+                description: `[Link Direto](${avatar})`, 
+                image: {
+                    url: avatar
+                }, 
+                color: 6684723
+                
             }
-          ]
-        };
-        message.channel.send("Nome", { embed })        
+        })
     }
 });
   
