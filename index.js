@@ -150,7 +150,7 @@ client.on("message", async message => {
                         member.removeRole(role);
                     }, ms(time));
 }
-if (comando === "tempmute") {
+if (comando === "ship") {
         let usuario1 = msgs[1];
         let usuario2 = msgs[2];
         let porcentagem = Math.floor((Math.random() * 100) + 1);
