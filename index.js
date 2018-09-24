@@ -18,7 +18,7 @@ client.on("ready", () => {
     //  1 = Transmitindo
     //  2 = Ouvind
    });
-
+ 
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
   client.user.setActivity(`Estou em ${client.guilds.size} servidores`);
