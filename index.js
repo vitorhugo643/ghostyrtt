@@ -1,4 +1,4 @@
-const Discord = require("discord.js"); //baixar a lib
+const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
 
@@ -12,12 +12,27 @@ client.on('guildMemberAdd', member => {
   channel.send(`Bem-vindo, ${member} ao grupo discord INSCRITOS » COMMUNITY, espero que voce goste de tudo!\n \nCanal do dono:https://youtu.be/yRecky\n \nBot foi desenvolvido pelo: NitrooPVP#4025. `);
 });
 
-client.on("ready", () => {
-      client.user.setPresence({ game: { name: '/ajuda', type: 2,} });
-    //0 = Jogando
-    //  1 = Transmitindo
-    //  2 = Ouvind
-   });
+client.on('ready', () =>{
+    let status = [
+        {name: 'Ajuda?│!ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+        {name: '😍Nighty » Community😍', type: 'LISTENING'},
+        {name: '😉Steam😉', type: 'PLAYING'},
+        {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
+      ];
+      
+      //STREAMING = Transmitindo
+      //LISTENING = Ouvindo
+      //PLAYING = Jogando
+      //WATCHING = Assistindo
+      
+        function setStatus() {
+            let randomStatus = status[Math.floor(Math.random() * status.length)];
+            client.user.setPresence({game: randomStatus});
+        }
+      
+        setStatus();
+        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
+});
  
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
