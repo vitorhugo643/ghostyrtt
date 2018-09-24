@@ -13,18 +13,15 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('ready', () => {
-    var text = ["Jogando", " Dormindo", "Banindo folgados", "Banindo ze ruela", "Kikando"];
-    var counter = 0;
-    var inst = setInterval(change, 60000);
+    client.user.setPresence({ game: { name: 'minecraft e ajudando | /ajuda', type: 0,} });
 
-    function change() {
-      client.user.setActivity(text[counter]);
-      counter++;
-      if (counter >= text.length) {
-        counter = 0;
-        
-      }
-    }
+//0 = Jogando
+
+// 1 = Transmitindo
+
+// 2 = Ouvindo
+
+// 3 = Assistindo
 });
 
  
