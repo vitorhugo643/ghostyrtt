@@ -144,7 +144,7 @@ client.on("message", async message => {
                     let time = args[1];
                     if (!time) return message.reply("Tempo incorreto, use 10(s|m|h|d).");
                     let reason = args.slice(2).join(" ");
-                    if (!reason) reason = "Sem motivo";
+                    if (!reason) reason = ("Sem motivo");
                     member.addRole(role);
                     setTimeout(function () {
                         member.removeRole(role);
