@@ -170,6 +170,36 @@ const embed = new Discord.RichEmbed()
       message.channel.send("🍭 **| Obrigado sensei, sua sugestão foi enviada para a nossa STAFF!**")
  }
 }
+  if (command === "tempmute") {
+                    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+                    if (!member) return message.reply("Usuário não encontrado.");
+                    let role = message.guild.roles.find("name", "Silenciado");
+                    if (!role) {
+                        try {
+                            role = await message.guild.createRole({
+                                name: "Silenciado",
+                                color: "DEFAULT",
+                                permissions: []
+                            })
+                            message.guild.channels.forEach(async (channel, id) => {
+                                if (channel.type === "text" && channel.rolePermissions(message.guild.defaultRole).has("SEND_MESSAGES"))
+                                    await channel.overwritePermissions(role, {
+                                        SEND_MESSAGES: false,
+                                        ADD_REACTIONS: false
+                                    })
+                            })
+                        } catch (e) {
+                        }
+                    }
+                    let time = args[1];
+                    if (!time) return message.reply("Tempo incorreto, use 10(s|m|h|d).");
+                    let reason = args.slice(2).join(" ");
+                    if (!reason) reason = "Sem motivo";
+                    member.addRole(role);
+                    setTimeout(function () {
+                        member.removeRole(role);
+                    }, ms(time));
+}
 });
   
 
