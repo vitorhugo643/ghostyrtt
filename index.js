@@ -7,7 +7,7 @@ client.on("ready", () => {
 setInterval(function() {
         let status = [`google.com`, `google.com.br`]
         client.user.setActivity(status[Math.floor(Math.random() * status.length)]);
-    }, 20)*/
+    }, 20)
    });
 
 client.on("guildCreate", guild => {
