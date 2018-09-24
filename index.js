@@ -165,7 +165,7 @@ const embed = new Discord.RichEmbed()
     embed.addField("Sugestão:", sugestao)
     embed.addField("Sugerido Por:", user)
     embed.setColor("#f49542")
-    client.channels.find('id', 'ID DA SALA').send(embed)
+    client.channels.find('id', '493620796128886785').send(embed)
     .then(async function (embed) {
     await embed.react("👍")
     await embed.react("👎")
