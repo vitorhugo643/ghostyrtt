@@ -12,14 +12,21 @@ client.on('guildMemberAdd', member => {
   channel.send(`Bem-vindo, ${member} ao grupo discord INSCRITOS » COMMUNITY, espero que voce goste de tudo!\n \nCanal do dono:https://youtu.be/yRecky\n \nBot foi desenvolvido pelo: NitrooPVP#4025. `);
 });
 
-client.on("ready", () => {
-      client.user.setPresence({ game: { name: 'minecraft com yRecky | /ajuda', type: 0,} });
-    //0 = Jogando
-    //  1 = Transmitindo
-    //  2 = Ouvind
-   });
+client.on('ready', () => {
+    var text = ["Jogando", " Dormindo", "Banindo folgados", "Banindo ze ruela", "Kikando"];
+    var counter = 0;
+    var inst = setInterval(change, 60000);
 
-to no cel + acho q ta certo
+    function change() {
+      client.user.setActivity(text[counter]);;
+      counter++;
+      if (counter >= text.length) {
+        counter = 0;
+        
+      }
+    }
+});
+
  
 client.on("guildCreate", guild => {
   console.log(`O bot entrou nos servidor: ${guild.name} (id: ${guild.id}). População: ${guild.memberCount} membros!`);
