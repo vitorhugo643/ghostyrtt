@@ -14,10 +14,8 @@ client.on('guildMemberAdd', member => {
 
 client.on('ready', () =>{
     let status = [
-        {name: 'Ajuda?│!ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-        {name: '😍Nighty » Community😍', type: 'LISTENING'},
-        {name: '😉Steam😉', type: 'PLAYING'},
-        {name: 'Sr.Misterii│YouTube', type: 'WATCHING'},
+        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
+
       ];
       
       //STREAMING = Transmitindo
