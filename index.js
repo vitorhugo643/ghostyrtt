@@ -214,6 +214,14 @@ const embed = new Discord.RichEmbed()
                         member.removeRole(role);
                     }, ms(time));
 }
+ if(comando === "serverinfo"){
+    const info = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField(`Informacoes do servidor`,`Membros: ${client.guilds.memberCount}\nCanais: {client.guilds.channels.size}`)
+        .setFooter(`Usuario: ${message.author.tag}`,message.author.avatarURL)
+        
+    message.channel.send(info)
+}
 });
   
 
