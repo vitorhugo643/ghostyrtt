@@ -4,9 +4,10 @@ const config = require("./config.json");
 
  
 client.on("ready", () => {
-        let status = [`google.com`, `google.com.br`]
+      setInterval(function() {
+        let status = [`google`, `google2`]
         client.user.setActivity(status[Math.floor(Math.random() * status.length)]);
-    , 10000)
+    }, 20*10000)
    });
 
 client.on("guildCreate", guild => {
