@@ -5,11 +5,11 @@ const config = require("./config.json");
 
 client.on('guildMemberAdd', member => {
 
-  const channel = member.guild.channels.find("name", "📥entrada");
+  const channel = member.guild.channels.find("name", "entrada-saída");
 
   if (!channel) return;
   
-  channel.send(`Bem-vindo, ${member} ao grupo discord INSCRITOS » COMMUNITY, espero que voce goste de tudo!\n \nCanal do dono:https://youtu.be/yRecky\n \nBot foi desenvolvido pelo: NitrooPVP#4025. `);
+  channel.send(`Bem-vindo, ${member} ao grupo discord 30praum, espero que voce goste de tudo!\n \nNosso ip é: 30praum`);
 });
 
 client.on('ready', () =>{
