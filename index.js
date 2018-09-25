@@ -3,6 +3,10 @@ const client = new Discord.Client();
 const config = require("./config.json"); 
  
 
+client.on("guildMemberAdd", member => {
+    member.addRole(member.guild.roles.find(r => r.name == "MEMBRO"));
+});
+
 client.on('guildMemberAdd', member => {
   member.send(`${member}, Obrigado por entrar em nosso discord, sua presença é muito importante a nós! Seja Bem-Vindo! :heart_eyes:\n\n:book: Conheça nossas regras no chat :scroll: 💭regras.\n\n:pushpin: Convide seus amigos para se divertir juntos!\n\n:balloon: Ajude diariamente e consiga uma TAG maneira!\n\n:white_check_mark: #Paz #Respeito`);
   const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
