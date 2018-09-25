@@ -181,10 +181,11 @@ if (comando === "sugestao") {
      message.delete().catch(O_o=>{});
      message.reply(`Estou online em ${client.guilds.size} servidores!`);
    }
-   if(comando === "convite") {
+if(comando === "convite") {
     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
-    channel.createInvite()
-    .then(invite => console.log(`${invite.code}`))
+    message.channel.createInvite().then(invite=>{
+      message.channel.send(`https://discord.gg/${invite.code}`)
+      })
   }
 });
   
