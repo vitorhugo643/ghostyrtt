@@ -17,9 +17,9 @@ client.on('guildMemberAdd', member => {
 
 
 
-member.guild.channels.get('494228163510140929').send(`** ** ` + `<@` + member.user.id  + `>`);
+member.guild.channels.get('494274208780648469').send(`** ** ` + `<@` + member.user.id  + `>`);
 
-member.guild.channels.get('494228163510140929').send(embed).then(cona=> {
+member.guild.channels.get('494274208780648469').send(embed).then(cona=> {
   cona.react('⭕')
 })
  
