@@ -33,7 +33,7 @@ member.guild.channels.get('494274208780648469').send(embed).then(cona=> {
 client.on('messageReactionAdd', (reaction, user) => {
   if(reaction.emoji.name === "⭕" && user.id !== client.user.id) {
        reaction.remove(user)
-       client.guilds.get("464207744291962925").members.get(user.id).addRole('485654385884397569')
+       client.guilds.get("464207744291962925").members.get(user.id).addRole('4942766192849059949')
        client.guilds.get("464207744291962925").members.get(user.id).removeRole('485654385884397569')
        
   }
