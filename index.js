@@ -4,12 +4,16 @@ const config = require("./config.json");
  
 
 
+client.on("guildMemberAdd", member => {
+  member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
+})
+
 client.on('guildMemberAdd', member => { 
     
   let embed = new Discord.RichEmbed()
-.addField("Clique no emoji abaixo para completar a verificação!", "OBRIGADO!")
+.addField("Clique no emoji abaixo para completar a verificação!", " sla")
 .setColor('#FF0000')
-.setAuthor(`COMMUNITY - Verificação`, 'https://cdn.discordapp.com/attachments/444957023130353674/462671084907528213/460264772869554176.gif')
+.setAuthor(`nome do bot ou qqr coisa - Verificação`, 'https://cdn.discordapp.com/attachments/444957023130353674/462671084907528213/460264772869554176.gif')
 .setTimestamp();
 
 
@@ -21,7 +25,19 @@ member.guild.channels.get('494274208780648469').send(embed).then(cona=> {
 })
  
 
-  })
+  });
+
+
+
+
+client.on('messageReactionAdd', (reaction, user) => {
+  if(reaction.emoji.name === "⭕" && user.id !== client.user.id) {
+       reaction.remove(user)
+       client.guilds.get("464207744291962925").members.get(user.id).addRole('485654385884397569')
+       client.guilds.get("464207744291962925").members.get(user.id).removeRole('485654385884397569')
+       
+  }
+})
 
 
 client.on('ready', () =>{
