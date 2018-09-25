@@ -10,10 +10,7 @@ client.on('guildMemberAdd', member => {
   let canal = member.guild.channels.find(`name`, "📥entrada");
   if (!canal) return;  
   var embed = new Discord.RichEmbed()
-  .setColor(randomColor)
-  .setDescription(`🎈 **|** ${member} **Seja bem-vindo(a) ao nosso servidor!\nConvite https://discord.gg/JcVa7C**`)
-  .setColor('#36393e')
-  canal.send({embed : embed})
+  .setDescription(`🎈 | ${member} Seja bem-vindo(a) ao nosso servidor!\nConvite https://discord.gg/JcVa7C`)
 });
 
 client.on('ready', () =>{
