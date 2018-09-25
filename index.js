@@ -20,7 +20,7 @@ client.on("guildMemberAdd", member => {
           member.removeRole(member.guild.roles.find(role => role.name == "VERIFICANDO"))
       })
   })
-}))
+})
 
 
 client.on('ready', () =>{
