@@ -7,7 +7,6 @@ const config = require("./config.json");
 client.on("guildMemberAdd", member => {
   member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
 })
-
 client.on('guildMemberAdd', member => { 
     
   let embed = new Discord.RichEmbed()
@@ -25,7 +24,7 @@ member.guild.channels.get('494274208780648469').send(embed).then(cona=> {
 })
  
 
-  });
+  })
 
 
 
