@@ -5,8 +5,8 @@ const config = require("./config.json");
 
 client.on("guildMemberAdd", member => {
   member.guild.channels.find(c => c.name == "geral").send(new Discord.RichEmbed().setDescription(`:cross: BOT - verificação\nClique no emoji abaixo para completar a verificação!`).setTimestamp()).then(msg => {
-      msg.react("👌");
-      let filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === member.id;
+      msg.react(":white_check_mark:");
+      let filter = (reaction, user) => reaction.emoji.name === ':white_check_mark:' && user.id === member.id;
       let collector = msg.createReactionCollector(filter, { time: 30000 })
       collector.on('collect', r => {
           msg.delete()
