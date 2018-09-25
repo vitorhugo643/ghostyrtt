@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
 const config = require("./config.json"); 
-const ms = require("ms");
  
 
 client.on('ready', () =>{
@@ -236,11 +235,11 @@ const embed = new Discord.RichEmbed()
     message.channel.send(info)
 }
  if (comando === "sugestao") {
-if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o GlaDOS.exe! use /sugestao (Sua sugestão)')
+if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o Tuê! use /sugestao (Sua sugestão)')
 var canal = message.guild.channels.find("name", "sugestões");
 if (!canal) return;
 canal.send({embed:{
-    'title':'Sugestão',
+    'title':'sugestão',
     'description':args.slice(0).join(' '),
     'thumbnail':{
     }
