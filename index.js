@@ -10,7 +10,7 @@ client.on('guildMemberAdd', member => {
   let canal = member.guild.channels.find(`name`, "📥entrada");
   if (!canal) return;  
   var embed = new Discord.RichEmbed()
-  .setDescription(`🎈 | ${member} Seja bem-vindo(a) ao nosso servidor!\nConvite https://discord.gg/JcVa7C`)
+  .setDescription(`🎈 | ${member} Seja bem-vindo(a) ao nosso servidor!\n \nEspero que você goste do nosso servidor discord!\n \nConvite https://discord.gg/JcVa7C`)
 });
 
 client.on('ready', () =>{
