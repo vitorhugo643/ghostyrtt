@@ -5,18 +5,22 @@ const config = require("./config.json");
 
 
 client.on("guildMemberAdd", member => {
-  member.addRole(member.guild.roles.find(r => r.name == "MEMBRO"));
+  member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
 })
 
-
-client.on('messageReactionAdd', (reaction, user) => {
-  if(reaction.emoji.name === "⭕" && user.id !== client.user.id) {
-       reaction.remove(user)
-       client.guilds.get("464207744291962925").members.get(user.id).addRole('4942766192849059949')
-       client.guilds.get("464207744291962925").members.get(user.id).removeRole('485654385884397569')
-       
-  }
-})
+client.on("guildMemberAdd", member => {
+  member.guild.channels.find(c => c.name == "verificação").send(new Discord.RichEmbed().setDescription(`:cross: BOT - verificação\nClique no emoji abaixo para completar a verificação!`).setTimestamp()).then(msg => {
+      msg.react("👌");
+      let filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === member.id;
+      let collector = msg.createReactionCollector(filter, { time: 30000 })
+      collector.on('collect', r => {
+          msg.delete()
+          msg.channel.send("Parabéns, você foi verificado")
+          member.addRole(member.guild.roles.find(role => role.name == "MEMBRO"))
+          member.removeRole(member.guild.roles.find(role => role.name == "VERIFICANDO"))
+      })
+  })
+}))
 
 
 client.on('ready', () =>{
