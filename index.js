@@ -1,49 +1,10 @@
 const Discord = require("discord.js");
 const client = new Discord.Client(); 
-const config = require("./config.json");
-const ms = require("ms");
+const config = require("./config.json"); 
  
 
 client.on('ready', () =>{
-  let status = [
-      {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii%27%7D'},
-      {name: 'teste2', type: 'LISTENING'},
-      {name: 'teste3', type: 'PLAYING'},
-      {name: 'NitrooPVP│YouTube', type: 'WATCHING'},
-    ];
-
-    //STREAMING = Transmitindo
-    //LISTENING = Ouvindo
-    //PLAYING = Jogando
-    //WATCHING = Assistindo
-
-      function setStatus() {
-          let randomStatus = status[Math.floor(Math.random() * status.length)];
-          client.user.setPresence({game: randomStatus});
-      }
-
-      setStatus();
-      setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
-});
-
-client.on('ready', () =>{
-    let status = [
-        {name: 'Ajuda?│/ajuda', type: 'STREAMING', url: 'https://twitch.tv/srmisterii'},
-
-      ];
-      
-      //STREAMING = Transmitindo
-      //LISTENING = Ouvindo
-      //PLAYING = Jogando
-      //WATCHING = Assistindo
-      
-        function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            client.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
+  client.user.setGame(`Eu estou em ${client.guilds.size} servidores`);
 });
 
  
@@ -77,6 +38,7 @@ client.on("message", async message => {
   const comando = args.shift().toLowerCase();
   
   if(comando === "ping") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     const m = await message.channel.send("Ping?");
     message.delete().catch(O_o=>{});
     m.edit(`${message.member}, Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms.`);
@@ -93,7 +55,8 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Não foi possível deletar mensagens devido a: ${error}`));
   }
-  if(comando === "aviso") { 
+  if(comando === "aviso") {
+    if(message.channel.id !== '480917448615395357') return message.channel.send('você não pode usar comandos aqui, vai em <#480917448615395357> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
@@ -101,6 +64,7 @@ client.on("message", async message => {
     message.channel.send("@everyone\n\n"+ sayMessage);
   }
   if(comando === "urgente") { 
+    if(message.channel.id !== '480917448615395357') return message.channel.send('você não pode usar comandos aqui, vai em <#480917448615395357> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
     return message.reply("Desculpe mais você não tem permissão para usar isto!");
     const sayMessage = args.join(" ");
@@ -108,16 +72,19 @@ client.on("message", async message => {
     message.channel.send("@here\n\n"+ sayMessage);
   }
   if(comando === "ajuda") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
-    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n- /kick <mensagem> retirar uma pessoa do grupo discord.\n-/tempmute <mensagem> mutar uma pessoa por um tempo.\n-/ban <mensagem> banir uma pessoa do grupo discord.\n\nMembros:\n- /avatar - para ver sua foto de perfil.\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.");
+    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n- /kick <mensagem> retirar uma pessoa do grupo discord.\n-/tempmute <mensagem> mutar uma pessoa por um tempo.\n-/ban <mensagem> banir uma pessoa do grupo discord.\n\nMembros:\n- /avatar - para ver sua foto de perfil.\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.\n- /online - para mostrar quantos servidores estou onlie.");
   }
   if(comando === "criador") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
    const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
     message.reply("\n\nQuem e meu Pai/Criador\n\n» NitrooPVP\n» Canal: https://www.youtube.com/NitrooPVP");
   }
   if(comando === "kick") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -134,6 +101,7 @@ client.on("message", async message => {
     message.channels.get("491312484406525953").send(`${member.user.tag} foi expulso por ${message.author.tag}\nMotivo: ${reason}`);
   }
    if(comando === "ban") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     if(!message.member.hasPermissions("MANAGE_ROLES"))
       return message.reply("Desculpe, você não tem permissão para usar isto!");
     let member = message.mentions.members.first();
@@ -147,12 +115,8 @@ client.on("message", async message => {
       .catch(error => message.reply(`Desculpe ${message.author} não consegui banir o membro devido o : ${error}`));
     message.channels.get("491312484406525953").send(`${member.user.tag} foi banido por ${message.author.tag}\nMotivo: ${reason}`);
   }
-   if(comando === "say") { 
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});  
-    message.channel.send(sayMessage);
-  }
      if (comando === "avatar") {
+      if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
         let usuario = message.mentions.users.first() || message.author; 
         let avatar = usuario.displayAvatarURL; 
 
@@ -174,82 +138,41 @@ client.on("message", async message => {
             }
         })
     }
-   if(comando === "sugestao") {
-   module.exports.run = async (client, message, args) => {
-const sugestao = args.join(" ").slice(0);
-const user = message.author.username;
-if (!message.member.hasPermission(["SEND_MESSAGES"])) return message.reply("**Você não tem permissão para fazer uma sugestão!**");
-
-const embed = new Discord.RichEmbed()
-
-    embed.setTitle("Sugestão")
-    embed.setThumbnail(user.displayAvatarURL)
-    embed.setFooter("Obrigado pela sua sugestão", user.displayAvatarURL)
-    embed.addField("Sugestão:", sugestao)
-    embed.addField("Sugerido Por:", user)
-    embed.setColor("#f49542")
-    client.channels.find('id', '493620796128886785').send(embed)
-    .then(async function (embed) {
-    await embed.react("👍")
-    await embed.react("👎")
-    await embed.react("483650574089322498")
-      });
-      message.channel.send("🍭 **| Obrigado sensei, sua sugestão foi enviada para a nossa STAFF!**")
- }
-}
-  if (comando === "tempmute") {
-                    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-                    if (!member) return message.reply("Usuário não encontrado.");
-                    let role = message.guild.roles.find("name", "Silenciado");
-                    if (!role) {
-                        try {
-                            role = await message.guild.createRole({
-                                name: "Silenciado",
-                                color: "DEFAULT",
-                                permissions: []
-                            })
-                            message.guild.channels.forEach(async (channel, id) => {
-                                if (channel.type === "text" && channel.rolePermissions(message.guild.defaultRole).has("SEND_MESSAGES"))
-                                    await channel.overwritePermissions(role, {
-                                        SEND_MESSAGES: false,
-                                        ADD_REACTIONS: false
-                                    });
-                            });
-                        } catch (e) {
-                        }
-                    }
-                    let time = args[1];
-                    if (!time) return message.reply("Tempo incorreto, use 10(s|m|h|d).");
-                    let reason = args.slice(2).join(" ");
-                    if (!reason) reason = "Sem motivo";
-                    member.addRole(role);
-                    setTimeout(function () {
-                        member.removeRole(role);
-                    }, ms(time));
-}
- if(comando === "serverinfo") {
-    const info = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .addField(`Informacoes do servidor`,`Membros: ${client.guilds.memberCount}\nCanais: {client.guilds.channels.size}`)
-        .setFooter(`Usuario: ${message.author.tag}`,message.author.avatarURL)
-        
-    message.channel.send(info)
-}
- if (comando === "sugestao") {
-if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o Tuê! use /sugestao (Sua sugestão)')
-var canal = message.guild.channels.find("name", "sugestões");
-if (!canal) return;
-canal.send({embed:{
-    'title':'sugestão',
-    'description':args.slice(0).join(' '),
-    'thumbnail':{
-    }
-    ,'footer':{
-        'text':'Sugestão enviada por: ' + message.author.tag
-    },
-    'color':message.member.displayColor
-}})
-message.reply('Sua sugestão foi enviada com sucesso')}
+    if(comando === "serverinfo") {
+      if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
+      const info = new Discord.RichEmbed()
+          .setColor("RANDOM")
+          .addField(`Informacoes do servidor`,`Membros: ${client.guilds.memberCount}\nCanais: {client.guilds.channels.size}`)
+          .setFooter(`Usuario: ${message.author.tag}`,message.author.avatarURL)
+          
+      message.channel.send(info)
+  }
+if (comando === "sugestao") {
+  if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
+  if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o GlaDOS.exe! use /sugestao (Sua sugestão)')
+  var canal = message.guild.channels.find("name", "sugestões");
+  if (!canal) return;
+  canal.send({embed:{
+      'title':'Sugestão',
+      'description':args.slice(0).join(' '),
+      'thumbnail':{
+      }
+      ,'footer':{
+          'text':'Sugestão enviada por: ' + message.author.tag
+      },
+      'color':message.member.displayColor
+  }})
+  message.reply('Sua sugestão foi enviada com sucesso')}
+  if(comando === "online") {
+    const deleteCount = parseInt(args[0], 10);
+     message.delete().catch(O_o=>{});
+     message.reply(`Estou online em ${client.guilds.size} servidores!`);
+   }
+   if(comando === "convite") {
+    if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
+    channel.createInvite()
+    .then(invite => console.log(`${invite.code}`))
+  }
 });
   
 
