@@ -4,7 +4,7 @@ const config = require("./config.json");
  
 
 client.on("guildMemberAdd", member => {
-  member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
+  member.addRole(member.guild.roles.find(r => r.name == "verificação"));
 })
 
 client.on('guildMemberAdd', member => { 
