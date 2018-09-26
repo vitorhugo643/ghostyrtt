@@ -2,6 +2,40 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 
+bot.on("guildMemberAdd", member => {
+    member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
+})
+
+bot.on('guildMemberAdd', member => { 
+    
+    let embed = new Discord.RichEmbed()
+  .addField("Clique no emoji abaixo para completar a verificação!", " OBRIGADO!")
+  .setColor('#FF0000')
+  .setAuthor(`COMMUNITY - Verificação`, 'https://cdn.discordapp.com/attachments/444957023130353674/462671084907528213/460264772869554176.gif')
+  .setTimestamp();
+  
+  
+  
+  member.guild.channels.get('494228163510140929').send(`** ** ` + `<@` + member.user.id  + `>`);
+  
+  member.guild.channels.get('494228163510140929').send(embed).then(cona=> {
+    cona.react('⭕')
+  })
+   
+  
+    })
+  
+  
+  
+  
+  bot.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === "⭕" && user.id !== bot.user.id) {
+         reaction.remove(user)
+         bot.guilds.get("494228162964619275").members.get(user.id).addRole('494229675992678400')
+         bot.guilds.get("494228162964619275").members.get(user.id).removeRole('494253083199799322')
+         
+    }
+  })
 bot.on('ready', () => {
     bot.user.setPresence({ game: { name: `NADA`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
