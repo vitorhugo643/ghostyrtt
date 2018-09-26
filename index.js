@@ -154,7 +154,7 @@ client.on("message", async message => {
       message.channel.send(info)
   }
 if (comando === "sugestao") {
-  if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
+  if(message.channel.id !== '494297478976503819') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
   if (!args.slice(0).join(' ')) return message.reply('Diga sua sugestão para o GlaDOS.exe! use /sugestao (Sua sugestão)')
   var canal = message.guild.channels.find("name", "sugestões");
   if (!canal) return;
