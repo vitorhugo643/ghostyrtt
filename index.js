@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 
 bot.on("guildMemberAdd", member => {
-    member.addRole(member.guild.roles.find(r => r.name == "MEMBRO"));
+    member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
 })
 
 bot.on('guildMemberAdd', member => { 
