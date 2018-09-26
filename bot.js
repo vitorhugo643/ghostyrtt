@@ -5,6 +5,7 @@ const bot = new Discord.Client();
 bot.on("guildMemberAdd", member => {
     member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
 })
+
 bot.on('guildMemberAdd', member => { 
     
     let embed = new Discord.RichEmbed()
