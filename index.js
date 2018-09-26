@@ -81,7 +81,7 @@ client.on("message", async message => {
     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
     const deleteCount = parseInt(args[0], 10);
     message.delete().catch(O_o=>{});
-    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n- /kick <mensagem> retirar uma pessoa do grupo discord.\n-/tempmute <mensagem> mutar uma pessoa por um tempo.\n-/ban <mensagem> banir uma pessoa do grupo discord.\n\nMembros:\n- /avatar - para ver sua foto de perfil.\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.\n- /online - para mostrar quantos servidores estou onlie.\n- /convite - para convidar seus amigos!");
+    message.reply("\n\nComandos do BOT:\n\nAdministradores:\n- /apagar <2 a 100> - Apagar as mensagens do chat.\n- /aviso <mensagem> - Avisar o servidor do discord.\n- /kick <mensagem> retirar uma pessoa do grupo discord.\n-/ban <mensagem> banir uma pessoa do grupo discord.\n\nMembros:\n- /avatar - para ver sua foto de perfil.\n- /ping - Para ver seu ping/ms.\n- /criador - Para ver quem e meu Pai/Criador.\n- /online - para mostrar quantos servidores estou onlie.\n- /convite - para convidar seus amigos!");
   }
   if(comando === "criador") {
     if(message.channel.id !== '480914686968070174') return message.channel.send('você não pode usar comandos aqui, vai em <#480914686968070174> e digite o comando!');
