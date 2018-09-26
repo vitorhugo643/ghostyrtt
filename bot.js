@@ -5,7 +5,6 @@ const bot = new Discord.Client();
 bot.on("guildMemberAdd", member => {
     member.addRole(member.guild.roles.find(r => r.name == "VERIFICANDO"));
 })
-
 bot.on('guildMemberAdd', member => { 
     
     let embed = new Discord.RichEmbed()
@@ -16,9 +15,9 @@ bot.on('guildMemberAdd', member => {
   
   
   
-  member.guild.channels.get('494228163510140929').send(`** ** ` + `<@` + member.user.id  + `>`);
+  member.guild.channels.get('494309260163940362').send(`** ** ` + `<@` + member.user.id  + `>`);
   
-  member.guild.channels.get('494228163510140929').send(embed).then(cona=> {
+  member.guild.channels.get('494309260163940362').send(embed).then(cona=> {
     cona.react('⭕')
   })
    
@@ -31,8 +30,8 @@ bot.on('guildMemberAdd', member => {
   bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "⭕" && user.id !== bot.user.id) {
          reaction.remove(user)
-         bot.guilds.get("494228162964619275").members.get(user.id).addRole('494229675992678400')
-         bot.guilds.get("494228162964619275").members.get(user.id).removeRole('494253083199799322')
+         bot.guilds.get("464207744291962925").members.get(user.id).addRole('474731010886467606')
+         bot.guilds.get("464207744291962925").members.get(user.id).removeRole('494308686232158209')
          
     }
   })
