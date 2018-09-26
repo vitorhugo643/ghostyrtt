@@ -37,7 +37,7 @@ bot.on('guildMemberAdd', member => {
     }
   })
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: `NADA`, type: 1, url: 'https://www.youtube.com/yRecky'} });
+    bot.user.setPresence({ game: { name: `yRecky`, type: 1, url: 'https://www.youtube.com/yRecky'} });
     console.log('Logado');
 });
 bot.on('message', message => {
